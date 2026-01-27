@@ -11,7 +11,13 @@
     "sonarqube": "sonarqube-scanner",
     "test": "npm run test:backend && npm run test:frontend",
     "test:frontend": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.frontend.config.js",
-    "test:backend": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.backend.config.js"
+    "test:backend": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.backend.config.js",
+    "db:start": "./scripts/db.sh start",
+    "db:stop": "./scripts/db.sh stop",
+    "db:seed": "./scripts/db.sh seed",
+    "db:reset": "./scripts/db.sh reset",
+    "db:logs": "./scripts/db.sh logs",
+    "db:status": "./scripts/db.sh status"
   },
   "keywords": [],
   "author": "RP",
