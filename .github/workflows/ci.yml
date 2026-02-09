@@ -4,11 +4,11 @@ on:
     pull_request:
         branches:
             - main
-            - add-ci
+            - add-ci-for-ms1
     push:
         branches:
             - main
-            - add-ci
+            - add-ci-for-ms1
 
 jobs:
     test:
