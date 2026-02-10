@@ -23,11 +23,6 @@ jest.mock('../context/search', () => ({
   useSearch: jest.fn(() => [{ keyword: '' }, jest.fn()])
 }));
 
-// Mock useCategory hook if needed by Layout/Header
-jest.mock('../hooks/useCategory', () => ({
-  __esModule: true,
-  default: jest.fn(() => [[], jest.fn()]) // Return empty array for categories
-}));
 
 jest.mock('../hooks/useCategory', () => ({
   __esModule: true,
