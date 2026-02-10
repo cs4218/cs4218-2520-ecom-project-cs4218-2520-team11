@@ -3,7 +3,7 @@ import Layout from "./../components/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ProductDetailsStyles.css";
-import Spinner from "../components/Spinner";
+import Pagenotfound from "./Pagenotfound";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -15,9 +15,7 @@ const ProductDetails = () => {
   //initalp details
   useEffect(() => {
     if (params?.slug) getProduct();
-    else {
-      navigate("/product/pagenotfound");
-    }
+   
   }, [params?.slug]);
   //getProduct
   const getProduct = async () => {
@@ -45,6 +43,12 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
+
+
+  if (!product) {
+    return <Pagenotfound />
+  }
+
   return (
     <Layout>
       <div className="row container product-details">

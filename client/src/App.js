@@ -53,7 +53,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="*" element={<Pagenotfound />} />
-        <Route path="/product/pagenotfound" element={<Pagenotfound />} />
+        
+       
       </Routes>
     </>
   );
