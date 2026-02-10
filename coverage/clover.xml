@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1770737741294" clover="3.2.0">
-  <project timestamp="1770737741294" name="All files">
+<coverage generated="1770741315052" clover="3.2.0">
+  <project timestamp="1770741315052" name="All files">
     <metrics statements="49" coveredstatements="46" conditionals="12" coveredconditionals="10" methods="14" coveredmethods="13" elements="75" coveredelements="69" complexity="0" loc="49" ncloc="49" packages="1" files="2" classes="2"/>
     <file name="Login.js" path="/Users/gabriel/Desktop/cs4218-2520-ecom-project-cs4218-2520-team11/client/src/pages/Auth/Login.js">
       <metrics statements="22" coveredstatements="20" conditionals="8" coveredconditionals="7" methods="5" coveredmethods="4"/>
