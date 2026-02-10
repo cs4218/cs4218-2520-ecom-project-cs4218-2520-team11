@@ -16,7 +16,7 @@ const ProductDetails = () => {
   useEffect(() => {
     if (params?.slug) getProduct();
     else {
-      navigate("/pagenotfound");
+      navigate("/product/pagenotfound");
     }
   }, [params?.slug]);
   //getProduct
