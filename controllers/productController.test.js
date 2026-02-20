@@ -93,6 +93,7 @@ describe("createProductController", () => {
   // ── Validation – missing required fields ───────────────────────────────────
 
   it("given missing name – should return 500 with Name is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.name = undefined;
 
@@ -105,6 +106,7 @@ describe("createProductController", () => {
   });
 
   it("given missing description – should return 500 with Description is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.description = undefined;
 
@@ -119,6 +121,7 @@ describe("createProductController", () => {
   });
 
   it("given missing price – should return 500 with Price is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.price = undefined;
 
@@ -131,6 +134,7 @@ describe("createProductController", () => {
   });
 
   it("given missing category – should return 500 with Category is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.category = undefined;
 
@@ -143,6 +147,7 @@ describe("createProductController", () => {
   });
 
   it("given missing quantity – should return 500 with Quantity is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.quantity = undefined;
 
@@ -155,6 +160,7 @@ describe("createProductController", () => {
   });
 
   it("given photo larger than 1 MB – should return 500 with photo size error", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.files.photo.size = 1_500_000; // 1.5 MB
 
@@ -171,6 +177,7 @@ describe("createProductController", () => {
   // ── Successful Creation ────────────────────────────────────────────────────
 
   it("given all valid fields with photo – should read photo, save product, and return 201", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given – req already set to valid state in beforeEach
 
     // When
@@ -193,6 +200,7 @@ describe("createProductController", () => {
   });
 
   it("given valid fields without a photo – should save product without reading fs and return 201", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.files = {};
 
@@ -212,6 +220,7 @@ describe("createProductController", () => {
   });
 
   it("given valid data – should call slugify with the product name", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given – valid req set in beforeEach
 
     // When
@@ -222,6 +231,7 @@ describe("createProductController", () => {
   });
 
   it("given a photo exactly at 1 MB – should pass validation and create product", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given – exactly 1 MB is allowed (condition is size > 1000000)
     req.files.photo.size = 1_000_000;
 
@@ -235,6 +245,7 @@ describe("createProductController", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error on save – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     mockProductInstance.save.mockRejectedValueOnce(new Error("DB Error"));
 
@@ -294,6 +305,7 @@ describe("updateProductController", () => {
   // ── Validation – missing required fields ───────────────────────────────────
 
   it("given missing name – should return 500 with Name is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.name = undefined;
 
@@ -306,6 +318,7 @@ describe("updateProductController", () => {
   });
 
   it("given missing description – should return 500 with Description is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.description = undefined;
 
@@ -320,6 +333,7 @@ describe("updateProductController", () => {
   });
 
   it("given missing price – should return 500 with Price is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.price = undefined;
 
@@ -332,6 +346,7 @@ describe("updateProductController", () => {
   });
 
   it("given missing category – should return 500 with Category is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.category = undefined;
 
@@ -344,6 +359,7 @@ describe("updateProductController", () => {
   });
 
   it("given missing quantity – should return 500 with Quantity is Required", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.fields.quantity = undefined;
 
@@ -356,6 +372,7 @@ describe("updateProductController", () => {
   });
 
   it("given photo larger than 1 MB – should return 500 with photo size error", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.files.photo.size = 2_000_000; // 2 MB
 
@@ -372,6 +389,7 @@ describe("updateProductController", () => {
   // ── Successful Update ──────────────────────────────────────────────────────
 
   it("given valid data with photo – should update photo data, save, and return 201", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given – valid req set in beforeEach
 
     // When
@@ -399,6 +417,7 @@ describe("updateProductController", () => {
   });
 
   it("given valid data without a new photo – should not read fs and return 201", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.files = {};
 
@@ -418,6 +437,7 @@ describe("updateProductController", () => {
   });
 
   it("given valid data – should call slugify with the updated product name", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given – valid req set in beforeEach
 
     // When
@@ -428,6 +448,7 @@ describe("updateProductController", () => {
   });
 
   it("given valid data – should call findByIdAndUpdate with the product id from params", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params.pid = "specific-product-id";
 
@@ -445,6 +466,7 @@ describe("updateProductController", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error on findByIdAndUpdate – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     productModel.findByIdAndUpdate.mockRejectedValueOnce(new Error("DB Error"));
 
@@ -478,6 +500,7 @@ describe("deleteProductController", () => {
   // ── Successful Deletion ────────────────────────────────────────────────────
 
   it("given a valid product id – should delete product and return 200", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     productModel.findByIdAndDelete.mockReturnValueOnce({
       select: jest.fn().mockResolvedValueOnce({ _id: "prod1" }),
@@ -496,6 +519,7 @@ describe("deleteProductController", () => {
   });
 
   it("given a non-existent product id – should still return 200 (delete is idempotent)", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     productModel.findByIdAndDelete.mockReturnValueOnce({
       select: jest.fn().mockResolvedValueOnce(null),
@@ -513,6 +537,7 @@ describe("deleteProductController", () => {
   });
 
   it("given a valid id – should call findByIdAndDelete with the exact pid", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params.pid = "exact-prod-id-123";
     productModel.findByIdAndDelete.mockReturnValueOnce({
@@ -531,6 +556,7 @@ describe("deleteProductController", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     productModel.findByIdAndDelete.mockReturnValueOnce({
       select: jest.fn().mockRejectedValueOnce(new Error("DB Error")),
@@ -550,6 +576,7 @@ describe("deleteProductController", () => {
   });
 
   it("given findByIdAndDelete itself throws – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     productModel.findByIdAndDelete.mockImplementationOnce(() => {
       throw new Error("Connection lost");

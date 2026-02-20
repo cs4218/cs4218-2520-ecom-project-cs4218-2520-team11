@@ -73,6 +73,7 @@ describe("CreateCategory", () => {
 
   describe("Initial Rendering", () => {
     it("should render the Manage Category heading", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -85,6 +86,7 @@ describe("CreateCategory", () => {
     });
 
     it("should render the category form with input and submit button", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -102,6 +104,7 @@ describe("CreateCategory", () => {
     });
 
     it("should render the AdminMenu component", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -118,6 +121,7 @@ describe("CreateCategory", () => {
 
   describe("Loading Categories", () => {
     it("should fetch all categories from the API on mount", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -134,6 +138,7 @@ describe("CreateCategory", () => {
     });
 
     it("should display fetched categories in the table", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -149,6 +154,7 @@ describe("CreateCategory", () => {
     });
 
     it("should render Edit and Delete buttons for each category", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -166,6 +172,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when fetching categories fails", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockRejectedValueOnce(new Error("Network error"));
 
@@ -189,6 +196,7 @@ describe("CreateCategory", () => {
 
   describe("Creating a Category", () => {
     it("should call POST API and show success toast when category is created", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({
         data: { success: true },
@@ -217,6 +225,7 @@ describe("CreateCategory", () => {
     });
 
     it("should refetch categories after successful creation", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({ data: { success: true } });
 
@@ -240,6 +249,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when API returns success: false", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({
         data: { success: false, message: "Category already exists" },
@@ -264,6 +274,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when POST request throws an exception", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockRejectedValueOnce(new Error("Network error"));
 
@@ -292,6 +303,7 @@ describe("CreateCategory", () => {
 
   describe("Editing a Category", () => {
     it("should open the modal when an Edit button is clicked", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -311,6 +323,7 @@ describe("CreateCategory", () => {
     });
 
     it("should pre-fill the modal input with the selected category name", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -332,6 +345,7 @@ describe("CreateCategory", () => {
     });
 
     it("should call PUT API and show success toast when update succeeds", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({ data: { success: true } });
 
@@ -361,6 +375,7 @@ describe("CreateCategory", () => {
     });
 
     it("should close the modal after a successful update", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({ data: { success: true } });
 
@@ -388,6 +403,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when update API returns success: false", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({
         data: { success: false, message: "Update failed" },
@@ -415,6 +431,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when PUT request throws an exception", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockRejectedValueOnce(new Error("Network error"));
 
@@ -444,6 +461,7 @@ describe("CreateCategory", () => {
 
   describe("Deleting a Category", () => {
     it("should call DELETE API with correct id and show success toast", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.delete.mockResolvedValueOnce({ data: { success: true } });
 
@@ -470,6 +488,7 @@ describe("CreateCategory", () => {
     });
 
     it("should refetch categories after successful deletion", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.delete.mockResolvedValueOnce({ data: { success: true } });
 
@@ -495,6 +514,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when delete API returns success: false", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.delete.mockResolvedValueOnce({
         data: { success: false, message: "Delete failed" },
@@ -520,6 +540,7 @@ describe("CreateCategory", () => {
     });
 
     it("should show error toast when DELETE request throws an exception", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.delete.mockRejectedValueOnce(new Error("Network error"));
 

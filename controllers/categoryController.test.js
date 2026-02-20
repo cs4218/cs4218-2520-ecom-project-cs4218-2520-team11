@@ -47,6 +47,7 @@ describe("createCategoryController", () => {
   // ── Validation ─────────────────────────────────────────────────────────────
 
   it("given no name in request body – should return 401 with error message", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = {};
 
@@ -59,6 +60,7 @@ describe("createCategoryController", () => {
   });
 
   it("given an empty string name – should return 401 with error message", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "" };
 
@@ -73,6 +75,7 @@ describe("createCategoryController", () => {
   // ── Duplicate Detection ────────────────────────────────────────────────────
 
   it("given a name that already exists – should return 200 with already exists message", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Electronics" };
     categoryModel.findOne.mockResolvedValueOnce({
@@ -96,6 +99,7 @@ describe("createCategoryController", () => {
   // ── Successful Creation ────────────────────────────────────────────────────
 
   it("given a valid new category name – should slugify name, save, and return 201", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Electronics" };
     categoryModel.findOne.mockResolvedValueOnce(null);
@@ -123,6 +127,7 @@ describe("createCategoryController", () => {
   });
 
   it("given a valid new category name – should construct the model with name and slug", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Laptops" };
     slugify.mockReturnValue("laptops");
@@ -144,6 +149,7 @@ describe("createCategoryController", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Electronics" };
     const dbError = new Error("DB Error");
@@ -183,6 +189,7 @@ describe("updateCategoryController", () => {
   // ── Successful Update ──────────────────────────────────────────────────────
 
   it("given a valid name and id – should update category and return 200", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Updated Electronics" };
     req.params = { id: "cat1" };
@@ -212,6 +219,7 @@ describe("updateCategoryController", () => {
   });
 
   it("given a valid name – should call slugify with the new name", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "New Category Name" };
     req.params = { id: "cat2" };
@@ -228,6 +236,7 @@ describe("updateCategoryController", () => {
   });
 
   it("given a valid update – should pass { new: true } to get the updated document", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Gadgets" };
     req.params = { id: "cat3" };
@@ -244,6 +253,7 @@ describe("updateCategoryController", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Electronics" };
     req.params = { id: "cat1" };
@@ -281,6 +291,7 @@ describe("deleteCategoryCOntroller", () => {
   // ── Successful Deletion ────────────────────────────────────────────────────
 
   it("given a valid category id – should delete it and return 200", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params = { id: "cat1" };
     categoryModel.findByIdAndDelete.mockResolvedValueOnce({ _id: "cat1" });
@@ -298,6 +309,7 @@ describe("deleteCategoryCOntroller", () => {
   });
 
   it("given a non-existent id – should still return 200 (delete is idempotent)", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params = { id: "nonexistent-id" };
     categoryModel.findByIdAndDelete.mockResolvedValueOnce(null);
@@ -314,6 +326,7 @@ describe("deleteCategoryCOntroller", () => {
   });
 
   it("given a valid id – should call findByIdAndDelete with the exact id", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params = { id: "cat-xyz-123" };
     categoryModel.findByIdAndDelete.mockResolvedValueOnce({});
@@ -328,6 +341,7 @@ describe("deleteCategoryCOntroller", () => {
   // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error – should return 500 with error details", async () => {
+    //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.params = { id: "cat1" };
     categoryModel.findByIdAndDelete.mockRejectedValueOnce(new Error("DB Error"));

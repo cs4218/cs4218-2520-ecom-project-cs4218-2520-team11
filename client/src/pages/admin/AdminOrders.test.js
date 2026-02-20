@@ -112,6 +112,7 @@ describe("AdminOrders", () => {
 
   describe("Rendering", () => {
     it("should render the All Orders heading", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "mock-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: [] });
@@ -128,6 +129,7 @@ describe("AdminOrders", () => {
     });
 
     it("should render the table column headers when orders are present", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange – headers are rendered per-order row, so we need at least one order
       useAuth.mockReturnValue([{ token: "mock-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: [mockOrders[0]] });
@@ -150,6 +152,7 @@ describe("AdminOrders", () => {
     });
 
     it("should render the AdminMenu component", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "mock-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: [] });
@@ -170,6 +173,7 @@ describe("AdminOrders", () => {
 
   describe("Fetching Orders", () => {
     it("should fetch orders when auth token is present", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: mockOrders });
@@ -188,6 +192,7 @@ describe("AdminOrders", () => {
     });
 
     it("should not fetch orders when auth is null", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([null, jest.fn()]);
 
@@ -205,6 +210,7 @@ describe("AdminOrders", () => {
     });
 
     it("should not fetch orders when auth has no token", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ user: { name: "Admin" } }, jest.fn()]);
 
@@ -226,6 +232,7 @@ describe("AdminOrders", () => {
 
   describe("Displaying Orders", () => {
     it("should display buyer names for all orders", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: mockOrders });
@@ -245,6 +252,7 @@ describe("AdminOrders", () => {
     });
 
     it("should display Success for paid orders and Failed for unpaid orders", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: mockOrders });
@@ -264,6 +272,7 @@ describe("AdminOrders", () => {
     });
 
     it("should display product details within each order", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: [mockOrders[0]] });
@@ -283,6 +292,7 @@ describe("AdminOrders", () => {
     });
 
     it("should display sequential order numbers for each order row", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: mockOrders });
@@ -305,6 +315,7 @@ describe("AdminOrders", () => {
     });
 
     it("should render no order rows when orders list is empty", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValueOnce({ data: [] });
@@ -328,6 +339,7 @@ describe("AdminOrders", () => {
 
   describe("Changing Order Status", () => {
     it("should call PUT API with orderId and new status when status changes", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValue({ data: [mockOrders[0]] });
@@ -357,6 +369,7 @@ describe("AdminOrders", () => {
     });
 
     it("should refetch orders after a status change", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       useAuth.mockReturnValue([{ token: "valid-token" }, jest.fn()]);
       axios.get.mockResolvedValue({ data: [mockOrders[0]] });

@@ -69,6 +69,7 @@ describe("Products", () => {
 
   describe("Rendering", () => {
     it("should render the All Products List heading", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: [] } });
 
@@ -84,6 +85,7 @@ describe("Products", () => {
     });
 
     it("should render the AdminMenu component", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: [] } });
 
@@ -103,6 +105,7 @@ describe("Products", () => {
 
   describe("Fetching Products", () => {
     it("should call GET /api/v1/product/get-product on mount", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: [] } });
 
@@ -120,6 +123,7 @@ describe("Products", () => {
     });
 
     it("should display fetched products as cards with name and description", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: mockProducts } });
 
@@ -142,6 +146,7 @@ describe("Products", () => {
     });
 
     it("should render product links pointing to the admin update page", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: mockProducts } });
 
@@ -167,6 +172,7 @@ describe("Products", () => {
     });
 
     it("should render product images with correct API source URLs", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: mockProducts } });
 
@@ -192,6 +198,7 @@ describe("Products", () => {
     });
 
     it("should render an empty list when no products are returned", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockResolvedValueOnce({ data: { products: [] } });
 
@@ -210,6 +217,7 @@ describe("Products", () => {
     });
 
     it("should show error toast when fetching products fails", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockRejectedValueOnce(new Error("Network error"));
 

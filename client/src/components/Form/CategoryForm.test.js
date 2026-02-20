@@ -15,6 +15,7 @@ describe("CategoryForm", () => {
 
   describe("Rendering", () => {
     it("should render an input field and a submit button", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -34,6 +35,7 @@ describe("CategoryForm", () => {
     });
 
     it("should display the current value passed via the value prop", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -50,6 +52,7 @@ describe("CategoryForm", () => {
     });
 
     it("should render with an empty input when value is an empty string", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -68,6 +71,7 @@ describe("CategoryForm", () => {
 
   describe("User Interaction", () => {
     it("should call setValue with the typed value when input changes", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -88,6 +92,7 @@ describe("CategoryForm", () => {
     });
 
     it("should call setValue with empty string when input is cleared", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -107,6 +112,7 @@ describe("CategoryForm", () => {
     });
 
     it("should call handleSubmit when the submit button is clicked", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm
@@ -124,6 +130,7 @@ describe("CategoryForm", () => {
     });
 
     it("should call handleSubmit when the form is submitted directly", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       const { container } = render(
         <CategoryForm
@@ -141,6 +148,7 @@ describe("CategoryForm", () => {
     });
 
     it("should not call handleSubmit when only the input changes", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <CategoryForm

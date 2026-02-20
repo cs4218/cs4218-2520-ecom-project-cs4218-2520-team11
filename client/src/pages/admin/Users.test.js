@@ -52,6 +52,7 @@ describe("Users", () => {
 
   describe("Rendering", () => {
     it("should render the All Users heading", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -64,6 +65,7 @@ describe("Users", () => {
     });
 
     it("should render the Layout component with the correct title", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -79,6 +81,7 @@ describe("Users", () => {
     });
 
     it("should render the AdminMenu component", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -91,6 +94,7 @@ describe("Users", () => {
     });
 
     it("should render AdminMenu and All Users heading in the same view", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>

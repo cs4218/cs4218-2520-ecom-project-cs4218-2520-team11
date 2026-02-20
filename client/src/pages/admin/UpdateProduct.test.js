@@ -109,6 +109,7 @@ describe("UpdateProduct", () => {
 
   describe("Rendering", () => {
     it("should render the Update Product heading", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -121,6 +122,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should render the UPDATE PRODUCT and DELETE PRODUCT buttons", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -134,6 +136,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should display the existing product photo from the API by default", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -154,6 +157,7 @@ describe("UpdateProduct", () => {
 
   describe("Loading Data on Mount", () => {
     it("should fetch product data using the slug from route params", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -170,6 +174,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should pre-populate form fields with the existing product values", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -195,6 +200,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should fetch all categories on mount", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -211,6 +217,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should display fetched categories in the category dropdown", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -226,6 +233,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should show error toast when category fetch fails", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockImplementation((url) => {
         if (url.includes("/api/v1/product/get-product/")) {
@@ -254,6 +262,7 @@ describe("UpdateProduct", () => {
 
   describe("Photo Upload", () => {
     it("should show blob preview and file name when a new photo is selected", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -284,6 +293,7 @@ describe("UpdateProduct", () => {
 
   describe("Updating a Product", () => {
     it("should show success toast and navigate when API returns success", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({ data: { success: true } });
 
@@ -312,6 +322,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should show error toast when API returns a failure message", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({
         data: { success: false, message: "Update failed" },
@@ -340,6 +351,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should call axios.put with a FormData payload pointing to the correct product", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockResolvedValueOnce({ data: { success: true } });
 
@@ -368,6 +380,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should show error toast when axios.put rejects with an error", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.put.mockRejectedValueOnce(new Error("Network error"));
 
@@ -397,6 +410,7 @@ describe("UpdateProduct", () => {
 
   describe("Deleting a Product", () => {
     it("should call DELETE API and navigate when user confirms the prompt", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       window.prompt = jest.fn().mockReturnValue("yes");
       axios.delete.mockResolvedValueOnce({ data: { success: true } });
@@ -427,6 +441,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should not call DELETE API when user cancels the confirmation prompt", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       window.prompt = jest.fn().mockReturnValue(null);
 
@@ -446,6 +461,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should not call DELETE API when user submits empty string to prompt", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       window.prompt = jest.fn().mockReturnValue("");
 
@@ -465,6 +481,7 @@ describe("UpdateProduct", () => {
     });
 
     it("should show error toast when delete request throws an error", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       window.prompt = jest.fn().mockReturnValue("yes");
       axios.delete.mockRejectedValueOnce(new Error("Network error"));

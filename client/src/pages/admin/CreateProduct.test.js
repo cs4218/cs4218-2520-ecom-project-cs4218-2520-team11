@@ -89,6 +89,7 @@ describe("CreateProduct", () => {
 
   describe("Rendering", () => {
     it("should render the Create Product heading", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -101,6 +102,7 @@ describe("CreateProduct", () => {
     });
 
     it("should render all required form fields", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -123,6 +125,7 @@ describe("CreateProduct", () => {
     });
 
     it("should render a file upload input", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -141,6 +144,7 @@ describe("CreateProduct", () => {
 
   describe("Loading Categories", () => {
     it("should fetch categories from the API on mount", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -157,6 +161,7 @@ describe("CreateProduct", () => {
     });
 
     it("should display fetched categories in the category dropdown", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -172,6 +177,7 @@ describe("CreateProduct", () => {
     });
 
     it("should show error toast when fetching categories fails", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.get.mockRejectedValueOnce(new Error("Network error"));
 
@@ -195,6 +201,7 @@ describe("CreateProduct", () => {
 
   describe("Form Interaction", () => {
     it("should update the name field as user types", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -214,6 +221,7 @@ describe("CreateProduct", () => {
     });
 
     it("should update all text form fields as the user types", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -247,6 +255,7 @@ describe("CreateProduct", () => {
     });
 
     it("should display the file name label and image preview after photo upload", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       render(
         <MemoryRouter>
@@ -273,6 +282,7 @@ describe("CreateProduct", () => {
     });
 
     it("should show Upload Photo label before a photo is selected", () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange & Act
       render(
         <MemoryRouter>
@@ -289,6 +299,7 @@ describe("CreateProduct", () => {
 
   describe("Creating a Product", () => {
     it("should show success toast and navigate to products when API returns success", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({ data: { success: true } });
 
@@ -313,6 +324,7 @@ describe("CreateProduct", () => {
     });
 
     it("should show error toast when API returns a failure message", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({
         data: { success: false, message: "Product creation failed" },
@@ -335,6 +347,7 @@ describe("CreateProduct", () => {
     });
 
     it("should show error toast when axios.post throws an error", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange – rejected promise is caught by the try-catch
       axios.post.mockRejectedValueOnce(new Error("Network error"));
 
@@ -354,6 +367,7 @@ describe("CreateProduct", () => {
     });
 
     it("should call axios.post with a FormData payload on create", async () => {
+      //Julius Bryan Reynon Gambe, A0252251R
       // Arrange
       axios.post.mockResolvedValueOnce({ data: {} });
 
