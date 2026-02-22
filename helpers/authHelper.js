@@ -8,7 +8,7 @@ export const hashPassword = async (password) => {
 
     } catch (error) {
         console.log(error);
-    }
+    } throw new Error("Bcrypt hashing failed");
 };
 
 export const comparePassword = async (password,hashedPassword) => {
