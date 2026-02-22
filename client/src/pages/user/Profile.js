@@ -26,6 +26,9 @@ const Profile = () => {
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!name.trim()) return toast.error("Name is required");
+    if (!phone.trim()) return toast.error("Phone is required");
+    if (!address.trim()) return toast.error("Address is required");
     try {
       const { data } = await axios.put("/api/v1/auth/profile", {
         name,
@@ -34,7 +37,7 @@ const Profile = () => {
         phone,
         address,
       });
-      if (data?.errro) {
+      if (data?.error) {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });

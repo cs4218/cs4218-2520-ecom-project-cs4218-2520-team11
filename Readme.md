@@ -4,6 +4,10 @@
 
 Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-commerce website, offering seamless connectivity and user-friendly features. The platform provides a robust framework for online shopping. The website is designed to adapt to evolving business needs and can be efficiently extended.
 
+## MS1 CI Status
+
+**MS1 CI Log:** [https://github.com/cs4218/cs4218-2520-ecom-project-cs4218-2520-team11/actions/runs/21815142531/job/62935151413]
+
 ## 2. Website Features
 
 - **User Authentication**: Secure user authentication system implemented to manage user accounts and sessions.
@@ -33,34 +37,17 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
      npm -v
      ```
 
-### 2. MongoDB Setup
+### 2. MongoDB Setup (Local Docker)
 
-1. **Download and Install MongoDB Compass**:
+We use Docker to run MongoDB locally. This ensures all developers have an identical database environment.
 
-   - Visit [MongoDB Compass](https://www.mongodb.com/products/tools/compass) and download and install MongoDB Compass for your operating system.
+1. **Install Docker Desktop**:
+   - Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/) for your operating system.
 
-2. **Create a New Cluster**:
-
-   - Sign up or log in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register).
-   - After logging in, create a project and within that project deploy a free cluster.
-
-3. **Configure Database Access**:
-
-   - Create a new user for your database (if not alredy done so) in MongoDB Atlas.
-   - Navigate to "Database Access" under "Security" and create a new user with the appropriate permissions.
-
-4. **Whitelist IP Address**:
-
-   - Go to "Network Access" under "Security" and whitelist your IP address to allow access from your machine.
-   - For example, you could whitelist 0.0.0.0 to allow access from anywhere for ease of use.
-
-5. **Connect to the Database**:
-
-   - In your cluster's page on MongoDB Atlas, click on "Connect" and choose "Compass".
-   - Copy the connection string.
-
-6. **Establish Connection with MongoDB Compass**:
-   - Open MongoDB Compass on your local machine, paste the connection string (replace the necessary placeholders), and establish a connection to your cluster.
+2. **Verify Docker is Running**:
+   ```bash
+   docker --version
+   ```
 
 ### 3. Application Setup
 
@@ -81,28 +68,45 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
 
    - Run the following command in your project's root directory:
 
-     ```
+     ```bash
      npm install && cd client && npm install && cd ..
      ```
 
-3. **Add database connection string to `.env`**
+3. **Start MongoDB and Seed Database**
 
-   - Add the connection string copied from MongoDB Atlas to the `.env` file inside the project directory (replace the necessary placeholders):
-     ```env
-     MONGO_URL = <connection string>
-     ```
+   ```bash
+   npm run db:start    # Start MongoDB container
+   npm run db:seed     # Import sample data
+   ```
 
-4. **Adding sample data to database**
+   if anything goes wrong and you need to reset the database (revert back to seed data)
+   ```bash
+   npm run db:reset
+   ```
 
-   - Download “Sample DB Schema” from Canvas and extract it.
-   - In MongoDB Compass, create a database named `test` under your cluster.
-   - Add four collections to this database: `categories`, `orders`, `products`, and `users`.
-   - Under each collection, click "ADD DATA" and import the respective JSON from the extracted "Sample DB Schema".
+4. **Run the Application**
 
-5. **Running the Application**
-   - Open your web browser.
-   - Use `npm run dev` to run the app from root directory, which starts the development server.
-   - Navigate to `http://localhost:3000` to access the application.
+   ```bash
+   npm run dev
+   ```
+   
+   Navigate to `http://localhost:3000` to access the application.
+
+### Database Management Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm run db:start` | Start MongoDB container |
+| `npm run db:stop` | Stop MongoDB container |
+| `npm run db:seed` | Import/refresh seed data |
+| `npm run db:reset` | Reset database (stop, delete data, restart, re-seed) |
+| `npm run db:logs` | View MongoDB logs |
+| `npm run db:status` | Check container status |
+
+### Connecting with MongoDB Compass (Optional)
+
+If you want to browse the database visually, on MongoDB Compass navigate to:
+`mongodb://root:password@localhost:27017/?authSource=admin`
 
 ## 5. Unit Testing with Jest
 
