@@ -257,7 +257,7 @@ describe("createProductController", () => {
     expect(res.send).toHaveBeenCalledWith(
       expect.objectContaining({
         success: false,
-        message: "Error in crearing product",
+        message: "Error in creating product",
       })
     );
   });
