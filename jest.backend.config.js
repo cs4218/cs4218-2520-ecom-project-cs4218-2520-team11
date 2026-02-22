@@ -6,12 +6,12 @@ export default {
   testEnvironment: "node",
 
   // which tests to run
-  testMatch: [
-    "<rootDir>/{controllers,middlewares,helpers,models}/*.test.js",
-  ],
+  testMatch: ["<rootDir>/{controllers,middlewares,helpers,models}/*.test.js"],
 
   // jest code coverage
   collectCoverage: true,
+
+  // Scope coverage to MS1 assigned backend files
   collectCoverageFrom: [
     "controllers/categoryController.js",
     "controllers/productController.js",
@@ -19,6 +19,7 @@ export default {
     "models/userModel.js",
   ],
 
+  // Keep thresholds low to avoid failing due to partial controller scope
   coverageThreshold: {
     global: {
       lines: 9,
