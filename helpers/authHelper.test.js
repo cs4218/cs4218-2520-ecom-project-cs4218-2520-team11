@@ -13,6 +13,7 @@ describe("Auth Helper - Strict Cryptography Tests", () => {
     
     describe("Hashing Logic", () => {
       it("should successfully hash a plain text password with 10 salt rounds", async () => {
+      // Huang Yi Chee, A0259617R
         const plainPassword = "mySecurePassword";
         bcrypt.hash.mockResolvedValue("mocked_hashed_string");
 
@@ -24,7 +25,8 @@ describe("Auth Helper - Strict Cryptography Tests", () => {
     });
 
     describe("Error Handling", () => {
-      it("should THROW an error if bcrypt fails (Strict Security Check)", async () => {
+        it("should THROW an error if bcrypt fails (Strict Security Check)", async () => {
+        // Huang Yi Chee, A0259617R
         const dbError = new Error("Bcrypt hashing failed");
         bcrypt.hash.mockRejectedValue(dbError);
         await expect(hashPassword("password123")).rejects.toThrow("Bcrypt hashing failed");
@@ -35,7 +37,8 @@ describe("Auth Helper - Strict Cryptography Tests", () => {
   describe("comparePassword", () => {
     
     describe("Comparison Logic", () => {
-      it("should return true when passwords match", async () => {
+        it("should return true when passwords match", async () => {
+        // Huang Yi Chee, A0259617R
         bcrypt.compare.mockResolvedValue(true);
 
         const result = await comparePassword("plainText", "hashedText");
@@ -44,7 +47,8 @@ describe("Auth Helper - Strict Cryptography Tests", () => {
         expect(result).toBe(true);
       });
 
-      it("should return false when passwords do not match", async () => {
+        it("should return false when passwords do not match", async () => {
+        // Huang Yi Chee, A0259617R
         bcrypt.compare.mockResolvedValue(false);
 
         const result = await comparePassword("wrongPassword", "hashedText");

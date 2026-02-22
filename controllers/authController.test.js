@@ -12,7 +12,7 @@ jest.mock("../models/userModel.js");
 jest.mock("../helpers/authHelper.js");
 jest.mock("jsonwebtoken");
 
-describe("Auth Controller - Comprehensive Strict Test Suite", () => {
+describe("Auth Controller Test Suite", () => {
   let req, res;
 
   beforeEach(() => {

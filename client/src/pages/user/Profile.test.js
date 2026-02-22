@@ -17,7 +17,7 @@ jest.mock("../../components/Layout", () => ({ children, title }) => (
 ));
 jest.mock("../../components/UserMenu", () => () => <div data-testid="user-menu" />);
 
-describe("Profile Component - Strict UI Test Suite", () => {
+describe("Profile Component UI Test Suite", () => {
     let mockSetAuth;
     let mockAuthData;
 

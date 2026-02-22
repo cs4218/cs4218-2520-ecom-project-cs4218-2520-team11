@@ -5,7 +5,7 @@ import userModel from "../models/userModel.js";
 jest.mock("jsonwebtoken");
 jest.mock("../models/userModel.js");
 
-describe("Security Middleware - Strict Test Suite", () => {
+describe("Security Middleware Test Suite", () => {
   let req, res, next;
 
   beforeEach(() => {
