@@ -252,7 +252,7 @@ describe("UpdateProduct", () => {
       // Assert
       await waitFor(() => {
         expect(toast.error).toHaveBeenCalledWith(
-          "Something wwent wrong in getting catgeory"
+          "Something went wrong in getting category"
         );
       });
     });
@@ -435,7 +435,7 @@ describe("UpdateProduct", () => {
         expect(axios.delete).toHaveBeenCalledWith(
           "/api/v1/product/delete-product/prod1"
         );
-        expect(toast.success).toHaveBeenCalledWith("Product DEleted Succfully");
+        expect(toast.success).toHaveBeenCalledWith("Product Deleted Successfully");
         expect(mockNavigate).toHaveBeenCalledWith("/dashboard/admin/products");
       });
     });

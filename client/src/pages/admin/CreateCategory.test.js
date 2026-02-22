@@ -186,7 +186,7 @@ describe("CreateCategory", () => {
       // Assert
       await waitFor(() => {
         expect(toast.error).toHaveBeenCalledWith(
-          "Something wwent wrong in getting catgeory"
+          "Something went wrong in getting category"
         );
       });
     });
@@ -293,7 +293,7 @@ describe("CreateCategory", () => {
       // Assert
       await waitFor(() => {
         expect(toast.error).toHaveBeenCalledWith(
-          "somthing went wrong in input form"
+          "something went wrong in input form"
         );
       });
     });
@@ -452,7 +452,7 @@ describe("CreateCategory", () => {
 
       // Assert
       await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith("Somtihing went wrong");
+        expect(toast.error).toHaveBeenCalledWith("Something went wrong");
       });
     });
   });
@@ -559,7 +559,7 @@ describe("CreateCategory", () => {
 
       // Assert
       await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith("Somtihing went wrong");
+        expect(toast.error).toHaveBeenCalledWith("Something went wrong");
       });
     });
   });

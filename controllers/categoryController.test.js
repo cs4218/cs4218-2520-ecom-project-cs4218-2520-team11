@@ -92,7 +92,7 @@ describe("createCategoryController", () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith({
       success: true,
-      message: "Category Already Exisits",
+      message: "Category Already Exists",
     });
   });
 
@@ -304,7 +304,7 @@ describe("deleteCategoryCOntroller", () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith({
       success: true,
-      message: "Categry Deleted Successfully",
+      message: "Category Deleted Successfully",
     });
   });
 
@@ -321,7 +321,7 @@ describe("deleteCategoryCOntroller", () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith({
       success: true,
-      message: "Categry Deleted Successfully",
+      message: "Category Deleted Successfully",
     });
   });
 

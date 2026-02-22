@@ -230,7 +230,7 @@ describe("Products", () => {
 
       // Assert
       await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith("Someething Went Wrong");
+        expect(toast.error).toHaveBeenCalledWith("Something Went Wrong");
       });
     });
   });
