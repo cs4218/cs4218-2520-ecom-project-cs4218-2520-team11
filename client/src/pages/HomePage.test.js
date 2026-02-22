@@ -42,6 +42,7 @@ jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
 }));
 
+// Gabriel Seethor, A0257008H 
 describe('Home Page Component/ View Product List', () => {
   const mockProduct = {
     _id: '123',

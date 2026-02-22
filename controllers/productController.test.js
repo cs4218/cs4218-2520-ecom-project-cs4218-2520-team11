@@ -17,6 +17,7 @@ import categoryModel from '../models/categoryModel';
 jest.mock('../models/productModel');
 jest.mock('../models/categoryModel');
 
+// Gabriel Seethor, A0257008H 
 describe('Product Controller Unit Tests', () => {
   let req, res;
 
@@ -29,7 +30,7 @@ describe('Product Controller Unit Tests', () => {
       json: jest.fn()
     };
   });
-
+// Gabriel Seethor, A0257008H 
   describe('Product Recommendation (realtedProductController)', () => {
     test('should not show more than 3 related products', async () => {
       req.params = {
@@ -118,7 +119,7 @@ describe('Product Controller Unit Tests', () => {
 
 
   })
-
+// Gabriel Seethor, A0257008H 
   describe("View Product List/Home Page (productCountController)", () => {
     test("should return right product count", async () => {
       const mockCount = 8;
@@ -164,7 +165,7 @@ describe('Product Controller Unit Tests', () => {
 
 
   });
-
+// Gabriel Seethor, A0257008H 
   describe("Search Products (searchProductController)", () => {
     test("should call searchProductController with correct params ", async () => {
 
@@ -231,7 +232,7 @@ describe('Product Controller Unit Tests', () => {
 
 
    })
-
+// Gabriel Seethor, A0257008H 
    describe('Filter Products (productFiltersController)', () => {
         test('filter products by category only' , async () => {
 
@@ -410,6 +411,7 @@ describe('Product Controller Unit Tests', () => {
    })
 
 //Below onwards, all used AI to help generate since its mostly mundane unit tests.
+// Gabriel Seethor, A0257008H 
 describe('Get Products (getProductController)', () => {
    
    let req, res;
@@ -512,6 +514,7 @@ describe('Get Products (getProductController)', () => {
     console.log.mockRestore();
   });
 });
+// Gabriel Seethor, A0257008H 
 describe('Get Single Product (getSingleProductController)', () => {
   let req, res;
 
@@ -604,7 +607,7 @@ describe('Get Single Product (getSingleProductController)', () => {
 });
 
 
-
+// Gabriel Seethor, A0257008H 
 describe('Product Photo (productPhotoController)', () => {
   let req, res;
 
@@ -687,7 +690,7 @@ describe('Product Photo (productPhotoController)', () => {
     console.log.mockRestore();
   });
 });
-
+// Gabriel Seethor, A0257008H 
 describe('Product List (productListController)', () => {
   let req, res;
 
@@ -820,7 +823,7 @@ describe('Product List (productListController)', () => {
     console.log.mockRestore();
   });
 });
-
+// Gabriel Seethor, A0257008H 
 describe('Product Category (productCategoryController)', () => {
   let req, res;
 

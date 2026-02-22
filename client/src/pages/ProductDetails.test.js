@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { render, screen, act, waitFor } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
@@ -33,6 +34,7 @@ jest.mock('../hooks/useCategory', () => ({
   ], jest.fn()])
 }));
 
+// Gabriel Seethor, A0257008H 
 describe('Product Details Component', () => {
   const mockProduct = {
     _id: '123',

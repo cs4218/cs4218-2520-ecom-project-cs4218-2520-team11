@@ -1,4 +1,4 @@
-
+// Gabriel Seethor, A0257008H (Whole File)
 import { useCart } from '../context/cart';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';

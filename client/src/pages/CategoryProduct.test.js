@@ -1,3 +1,4 @@
+// Gabriel Seethor, A0257008H (Whole File)
 //Attribution : This file is prepared with the help of DeepSeek-V3.2
 
 import React from "react";
@@ -5,6 +6,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import CategoryProduct from "./CategoryProduct";
+
 
 // Mock dependencies
 jest.mock("../components/Layout", () => ({ children }) => (
