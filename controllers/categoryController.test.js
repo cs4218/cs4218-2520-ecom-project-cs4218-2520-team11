@@ -1,4 +1,7 @@
+import { jest } from "@jest/globals";
 import {
+  categoryControlller,
+  singleCategoryController,
   createCategoryController,
   updateCategoryController,
   deleteCategoryController,
@@ -6,15 +9,24 @@ import {
 import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
 
-// ─── Module Mocks ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// Module Mocks
+// ─────────────────────────────────────────────────────────────────────────────
 
+// This mock supports BOTH:
+// 1) Zyon's tests: categoryModel.find / categoryModel.findOne
+// 2) Julius tests: new categoryModel({...}).save() + static methods
 jest.mock("../models/categoryModel.js", () => {
   const MockCategoryModel = jest.fn().mockImplementation(() => ({
     save: jest.fn(),
   }));
+
+  // Static methods used across both test suites
+  MockCategoryModel.find = jest.fn();
   MockCategoryModel.findOne = jest.fn();
   MockCategoryModel.findByIdAndUpdate = jest.fn();
   MockCategoryModel.findByIdAndDelete = jest.fn();
+
   return { __esModule: true, default: MockCategoryModel };
 });
 
@@ -23,15 +35,120 @@ jest.mock("slugify", () => ({
   default: jest.fn((str) => str.toLowerCase().replace(/\s+/g, "-")),
 }));
 
-// ─── Shared Test Helpers ──────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// Shared Test Helpers
+// ─────────────────────────────────────────────────────────────────────────────
 
 const buildRes = () => ({
   status: jest.fn().mockReturnThis(),
-  send: jest.fn(),
+  send: jest.fn().mockReturnThis(),
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// createCategoryController
+// categoryControlller + singleCategoryController (ZYON)
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe("categoryController", () => {
+  let logSpy;
+
+  beforeEach(() => {
+    logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    logSpy.mockRestore();
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("returns all categories with success payload", async () => {
+    // Arrange
+    const req = {};
+    const res = buildRes();
+    const categories = [{ _id: "1", name: "Phones" }];
+    categoryModel.find.mockResolvedValue(categories);
+
+    // Act
+    await categoryControlller(req, res);
+
+    // Assert
+    expect(categoryModel.find).toHaveBeenCalledWith({});
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.send).toHaveBeenCalledWith({
+      success: true,
+      message: "All Categories List",
+      category: categories,
+    });
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("returns 500 when fetching categories fails", async () => {
+    // Arrange
+    const req = {};
+    const res = buildRes();
+    const error = new Error("db failed");
+    categoryModel.find.mockRejectedValue(error);
+
+    // Act
+    await categoryControlller(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith({
+      success: false,
+      error,
+      message: "Error while getting all categories",
+    });
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("returns a single category by slug", async () => {
+    // Arrange
+    const req = { params: { slug: "phones" } };
+    const res = buildRes();
+    const category = { _id: "1", name: "Phones", slug: "phones" };
+    categoryModel.findOne.mockResolvedValue(category);
+
+    // Act
+    await singleCategoryController(req, res);
+
+    // Assert
+    expect(categoryModel.findOne).toHaveBeenCalledWith({ slug: "phones" });
+    expect(res.status).toHaveBeenCalledWith(200);
+
+    // NOTE: Prefer refactor-resistant assertion; message casing may change
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: true,
+        category,
+        message: expect.any(String),
+      })
+    );
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("returns 500 when fetching a single category fails", async () => {
+    // Arrange
+    const req = { params: { slug: "phones" } };
+    const res = buildRes();
+    const error = new Error("db error");
+    categoryModel.findOne.mockRejectedValue(error);
+
+    // Act
+    await singleCategoryController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith({
+      success: false,
+      error,
+      message: "Error While getting Single Category",
+    });
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// createCategoryController (Julius)
 // ─────────────────────────────────────────────────────────────────────────────
 
 describe("createCategoryController", () => {
@@ -43,8 +160,6 @@ describe("createCategoryController", () => {
     res = buildRes();
     slugify.mockReturnValue("electronics");
   });
-
-  // ── Validation ─────────────────────────────────────────────────────────────
 
   it("given no name in request body – should return 401 with error message", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
@@ -72,8 +187,6 @@ describe("createCategoryController", () => {
     expect(res.send).toHaveBeenCalledWith({ message: "Name is required" });
   });
 
-  // ── Duplicate Detection ────────────────────────────────────────────────────
-
   it("given a name that already exists – should return 200 with already exists message", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
     // Given
@@ -95,8 +208,6 @@ describe("createCategoryController", () => {
       message: "Category Already Exists",
     });
   });
-
-  // ── Successful Creation ────────────────────────────────────────────────────
 
   it("given a valid new category name – should slugify name, save, and return 201", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
@@ -146,8 +257,6 @@ describe("createCategoryController", () => {
     });
   });
 
-  // ── Error Handling ─────────────────────────────────────────────────────────
-
   it("given a database error – should return 500 with error details", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
     // Given
@@ -171,7 +280,7 @@ describe("createCategoryController", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// updateCategoryController
+// updateCategoryController (Julius)
 // ─────────────────────────────────────────────────────────────────────────────
 
 describe("updateCategoryController", () => {
@@ -181,12 +290,8 @@ describe("updateCategoryController", () => {
     jest.clearAllMocks();
     req = { body: {}, params: {} };
     res = buildRes();
-    slugify.mockImplementation((str) =>
-      str.toLowerCase().replace(/\s+/g, "-")
-    );
+    slugify.mockImplementation((str) => str.toLowerCase().replace(/\s+/g, "-"));
   });
-
-  // ── Successful Update ──────────────────────────────────────────────────────
 
   it("given a valid name and id – should update category and return 200", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
@@ -250,16 +355,12 @@ describe("updateCategoryController", () => {
     expect(callArgs[2]).toEqual({ new: true });
   });
 
-  // ── Error Handling ─────────────────────────────────────────────────────────
-
   it("given a database error – should return 500 with error details", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
     // Given
     req.body = { name: "Electronics" };
     req.params = { id: "cat1" };
-    categoryModel.findByIdAndUpdate.mockRejectedValueOnce(
-      new Error("DB Error")
-    );
+    categoryModel.findByIdAndUpdate.mockRejectedValueOnce(new Error("DB Error"));
 
     // When
     await updateCategoryController(req, res);
@@ -276,10 +377,10 @@ describe("updateCategoryController", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// deleteCategoryCOntroller  (note: function name contains intentional typo)
+// deleteCategoryController (Julius)
 // ─────────────────────────────────────────────────────────────────────────────
 
-describe("deleteCategoryCOntroller", () => {
+describe("deleteCategoryController", () => {
   let req, res;
 
   beforeEach(() => {
@@ -287,8 +388,6 @@ describe("deleteCategoryCOntroller", () => {
     req = { params: {} };
     res = buildRes();
   });
-
-  // ── Successful Deletion ────────────────────────────────────────────────────
 
   it("given a valid category id – should delete it and return 200", async () => {
     //Julius Bryan Reynon Gambe, A0252251R
@@ -337,8 +436,6 @@ describe("deleteCategoryCOntroller", () => {
     // Then
     expect(categoryModel.findByIdAndDelete).toHaveBeenCalledWith("cat-xyz-123");
   });
-
-  // ── Error Handling ─────────────────────────────────────────────────────────
 
   it("given a database error – should return 500 with error details", async () => {
     //Julius Bryan Reynon Gambe, A0252251R

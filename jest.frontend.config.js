@@ -19,24 +19,30 @@ export default {
   // ignore all node_modules except styleMock (needed for css imports)
   transformIgnorePatterns: ["/node_modules/(?!(styleMock\\.js)$)"],
 
-  // only run these tests
-  testMatch: [
-    "<rootDir>/client/src/pages/**/*.test.js",
-    "<rootDir>/client/src/components/**/*.test.js",
-  ],
+  // run all frontend tests (pages, components, hooks, etc.)
+  testMatch: ["<rootDir>/client/src/**/*.test.js"],
+  testPathIgnorePatterns: ["<rootDir>/client/src/_site/"],
 
   // jest code coverage
   collectCoverage: true,
+
+  // scope coverage to MS1 assigned frontend files
   collectCoverageFrom: [
-    "client/src/pages/Auth/**",
-    "client/src/pages/admin/**",
-    "client/src/components/Form/**",
+    "client/src/hooks/useCategory.js",
+    "client/src/pages/Categories.js",
+    "client/src/components/AdminMenu.js",
+    "client/src/pages/admin/AdminDashboard.js",
+    "client/src/components/Routes/Private.js",
+    "client/src/components/UserMenu.js",
+    "client/src/pages/user/Dashboard.js",
   ],
+
   coverageThreshold: {
     global: {
       lines: 80,
       functions: 80,
     },
   },
+
   setupFilesAfterEnv: ["<rootDir>/client/src/setupTests.js"],
 };
