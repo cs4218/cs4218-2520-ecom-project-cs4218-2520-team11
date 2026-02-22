@@ -41,7 +41,8 @@ window.matchMedia = window.matchMedia || function() {
 
 describe('Login Component', () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+      jest.clearAllMocks();
+      axios.get.mockResolvedValue({ data: { category: [] } });
     });
 
     it('renders login form', () => {
@@ -134,5 +135,52 @@ describe('Login Component', () => {
 
         await waitFor(() => expect(axios.post).toHaveBeenCalled());
         expect(toast.error).toHaveBeenCalledWith('Something went wrong');
+    });
+  
+    it('should display error message from backend when login is rejected (success: false)', async () => {
+    // Huang Yi Chee, A0259617R
+
+    axios.post.mockResolvedValueOnce({
+      data: {
+        success: false,
+        message: 'Invalid Password'
+      }
+    });
+
+    const { getByPlaceholderText, getByText } = render(
+      <MemoryRouter initialEntries={['/login']}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    fireEvent.change(getByPlaceholderText('Enter Your Email'), { target: { value: 'test@example.com' } });
+    fireEvent.change(getByPlaceholderText('Enter Your Password'), { target: { value: 'wrongpassword' } });
+    fireEvent.click(getByText('LOGIN'));
+
+    await waitFor(() => expect(axios.post).toHaveBeenCalled());
+    
+    expect(toast.error).toHaveBeenCalledWith('Invalid Password');
+    
+    expect(toast.success).not.toHaveBeenCalled();
+  });
+  
+    it('should navigate to forgot password page when Forgot Password button is clicked', async () => {
+    // Huang Yi Chee, A0259617R
+        const { getByText } = render(
+            <MemoryRouter initialEntries={['/login']}>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/forgot-password" element={<div>Virtual Forgot Password Page</div>} />
+                </Routes>
+            </MemoryRouter>
+        );
+
+        fireEvent.click(getByText('Forgot Password'));
+
+        await waitFor(() => {
+            expect(getByText('Virtual Forgot Password Page')).toBeInTheDocument();
+        });
     });
 });

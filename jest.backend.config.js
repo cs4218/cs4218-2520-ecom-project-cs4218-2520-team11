@@ -5,10 +5,9 @@ export default {
   // when testing backend
   testEnvironment: "node",
 
-  // which test to run
+  // which tests to run
   testMatch: [
-    "<rootDir>/controllers/*.test.js",
-    "<rootDir>/models/*.test.js",
+    "<rootDir>/{controllers,middlewares,helpers,models}/*.test.js",
   ],
 
   // jest code coverage
@@ -19,6 +18,7 @@ export default {
     "models/categoryModel.js",
     "models/userModel.js",
   ],
+
   coverageThreshold: {
     global: {
       lines: 9,
