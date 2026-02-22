@@ -12,7 +12,7 @@ jest.mock("../../components/Layout", () => ({ children, title }) => (
   <div data-testid="layout" title={title}>{children}</div>
 ));
 
-describe("ForgotPassword Component - Strict UI Test Suite", () => {
+describe("ForgotPassword Component UI Test Suite", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
