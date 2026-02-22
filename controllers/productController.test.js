@@ -2,8 +2,18 @@ import {
   createProductController,
   updateProductController,
   deleteProductController,
+  getProductController,
+  getSingleProductController,
+  productPhotoController,
+  productFiltersController,
+  productCountController,
+  productListController,
+  searchProductController,
+  realtedProductController,
+  productCategoryController,
 } from "./productController.js";
 import productModel from "../models/productModel.js";
+import categoryModel from "../models/categoryModel.js";
 import fs from "fs";
 import slugify from "slugify";
 
@@ -14,14 +24,25 @@ jest.mock("../models/productModel.js", () => {
     photo: { data: null, contentType: null },
     save: jest.fn().mockResolvedValue({}),
   }));
+  MockProductModel.find = jest.fn();
+  MockProductModel.findById = jest.fn();
+  MockProductModel.findOne = jest.fn();
   MockProductModel.findByIdAndUpdate = jest.fn();
   MockProductModel.findByIdAndDelete = jest.fn();
   return { __esModule: true, default: MockProductModel };
 });
 
-jest.mock("../models/categoryModel.js", () => ({
+jest.mock("../models/categoryModel.js", () => {
+  const MockCategoryModel = jest.fn();
+  MockCategoryModel.findOne = jest.fn();
+  return { __esModule: true, default: MockCategoryModel };
+});
+
+jest.mock("../models/orderModel.js", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn().mockImplementation(() => ({
+    save: jest.fn().mockResolvedValue({}),
+  })),
 }));
 
 jest.mock("fs", () => ({
@@ -46,6 +67,8 @@ jest.mock("dotenv", () => ({ config: jest.fn() }));
 const buildRes = () => ({
   status: jest.fn().mockReturnThis(),
   send: jest.fn(),
+  set: jest.fn(),
+  json: jest.fn(),
 });
 
 /** Default valid fields for create/update tests */
