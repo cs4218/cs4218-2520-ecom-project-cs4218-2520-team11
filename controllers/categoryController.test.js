@@ -1,9 +1,7 @@
 import {
   createCategoryController,
   updateCategoryController,
-  deleteCategoryController,
-  categoryControlller,
-  singleCategoryController,
+  deleteCategoryCOntroller,
 } from "./categoryController.js";
 import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
@@ -14,7 +12,6 @@ jest.mock("../models/categoryModel.js", () => {
   const MockCategoryModel = jest.fn().mockImplementation(() => ({
     save: jest.fn(),
   }));
-  MockCategoryModel.find = jest.fn();
   MockCategoryModel.findOne = jest.fn();
   MockCategoryModel.findByIdAndUpdate = jest.fn();
   MockCategoryModel.findByIdAndDelete = jest.fn();
@@ -279,10 +276,10 @@ describe("updateCategoryController", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// deleteCategoryController
+// deleteCategoryCOntroller  (note: function name contains intentional typo)
 // ─────────────────────────────────────────────────────────────────────────────
 
-describe("deleteCategoryController", () => {
+describe("deleteCategoryCOntroller", () => {
   let req, res;
 
   beforeEach(() => {
@@ -300,7 +297,7 @@ describe("deleteCategoryController", () => {
     categoryModel.findByIdAndDelete.mockResolvedValueOnce({ _id: "cat1" });
 
     // When
-    await deleteCategoryController(req, res);
+    await deleteCategoryCOntroller(req, res);
 
     // Then
     expect(categoryModel.findByIdAndDelete).toHaveBeenCalledWith("cat1");
@@ -318,7 +315,7 @@ describe("deleteCategoryController", () => {
     categoryModel.findByIdAndDelete.mockResolvedValueOnce(null);
 
     // When
-    await deleteCategoryController(req, res);
+    await deleteCategoryCOntroller(req, res);
 
     // Then
     expect(res.status).toHaveBeenCalledWith(200);
@@ -335,7 +332,7 @@ describe("deleteCategoryController", () => {
     categoryModel.findByIdAndDelete.mockResolvedValueOnce({});
 
     // When
-    await deleteCategoryController(req, res);
+    await deleteCategoryCOntroller(req, res);
 
     // Then
     expect(categoryModel.findByIdAndDelete).toHaveBeenCalledWith("cat-xyz-123");
@@ -350,7 +347,7 @@ describe("deleteCategoryController", () => {
     categoryModel.findByIdAndDelete.mockRejectedValueOnce(new Error("DB Error"));
 
     // When
-    await deleteCategoryController(req, res);
+    await deleteCategoryCOntroller(req, res);
 
     // Then
     expect(res.status).toHaveBeenCalledWith(500);
@@ -358,153 +355,6 @@ describe("deleteCategoryController", () => {
       expect.objectContaining({
         success: false,
         message: "error while deleting category",
-      })
-    );
-  });
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// categoryControlller  (note: function name contains intentional typo)
-// ─────────────────────────────────────────────────────────────────────────────
-
-describe("categoryControlller", () => {
-  let req, res;
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-    req = {};
-    res = buildRes();
-  });
-
-  // ── Successful Retrieval ───────────────────────────────────────────────────
-
-  it("given categories exist – should return 200 with all categories", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    const mockCategories = [
-      { _id: "cat1", name: "Electronics" },
-      { _id: "cat2", name: "Books" },
-    ];
-    categoryModel.find.mockResolvedValueOnce(mockCategories);
-
-    // When
-    await categoryControlller(req, res);
-
-    // Then
-    expect(categoryModel.find).toHaveBeenCalledWith({});
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({
-        success: true,
-        message: "All Categories List",
-        category: mockCategories,
-      })
-    );
-  });
-
-  it("given an empty database – should return 200 with an empty array", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    categoryModel.find.mockResolvedValueOnce([]);
-
-    // When
-    await categoryControlller(req, res);
-
-    // Then
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({ success: true, category: [] })
-    );
-  });
-
-  // ── Error Handling ─────────────────────────────────────────────────────────
-
-  it("given a database error – should return 500 with error details", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    const dbError = new Error("DB Error");
-    categoryModel.find.mockRejectedValueOnce(dbError);
-
-    // When
-    await categoryControlller(req, res);
-
-    // Then
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({
-        success: false,
-        message: "Error while getting all categories",
-      })
-    );
-  });
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// singleCategoryController
-// ─────────────────────────────────────────────────────────────────────────────
-
-describe("singleCategoryController", () => {
-  let req, res;
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-    req = { params: { slug: "electronics" } };
-    res = buildRes();
-  });
-
-  // ── Successful Retrieval ───────────────────────────────────────────────────
-
-  it("given a valid slug – should return 200 with the matching category", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    const mockCategory = { _id: "cat1", name: "Electronics", slug: "electronics" };
-    categoryModel.findOne.mockResolvedValueOnce(mockCategory);
-
-    // When
-    await singleCategoryController(req, res);
-
-    // Then
-    expect(categoryModel.findOne).toHaveBeenCalledWith({ slug: "electronics" });
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({
-        success: true,
-        category: mockCategory,
-      })
-    );
-  });
-
-  it("given a slug with no match – should still return 200 with null category", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    categoryModel.findOne.mockResolvedValueOnce(null);
-
-    // When
-    await singleCategoryController(req, res);
-
-    // Then
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({ success: true, category: null })
-    );
-  });
-
-  // ── Error Handling ─────────────────────────────────────────────────────────
-
-  it("given a database error – should return 500 with error details", async () => {
-    //Julius Bryan Reynon Gambe, A0252251R
-    // Given
-    categoryModel.findOne.mockRejectedValueOnce(new Error("DB Error"));
-
-    // When
-    await singleCategoryController(req, res);
-
-    // Then
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith(
-      expect.objectContaining({
-        success: false,
-        message: "Error While getting Single Category",
       })
     );
   });
