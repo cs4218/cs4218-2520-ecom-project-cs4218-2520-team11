@@ -478,7 +478,7 @@ describe("updateProductController", () => {
     expect(res.send).toHaveBeenCalledWith(
       expect.objectContaining({
         success: false,
-        message: "Error in Updte product",
+        message: "Error in Update product",
       })
     );
   });
