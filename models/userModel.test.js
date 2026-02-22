@@ -73,7 +73,7 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should validate that a user without name fails validation", async () => {
+    it("should validate that a user without name fails validation", () => {
         const user = new userModel({
             email: "test@example.com",
             password: "password123",
@@ -88,7 +88,7 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should validate that a user without email fails validation", async () => {
+    it("should validate that a user without email fails validation", () => {
         const user = new userModel({
             name: "John Doe",
             password: "password123",
@@ -103,7 +103,7 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should validate that a user without password fails validation", async () => {
+    it("should validate that a user without password fails validation", () => {
         const user = new userModel({
             name: "John Doe",
             email: "test@example.com",
@@ -118,7 +118,7 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should validate that a user without phone fails validation", async () => {
+    it("should validate that a user without phone fails validation", () => {
         const user = new userModel({
             name: "John Doe",
             email: "test@example.com",
@@ -133,7 +133,7 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should validate that a user without answer fails validation", async () => {
+    it("should validate that a user without answer fails validation", () => {
         const user = new userModel({
             name: "John Doe",
             email: "test@example.com",
@@ -206,11 +206,11 @@ describe("User Model Schema", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it("should have exactly 7 defined schema paths (excluding internal _id and __v)", () => {
+    it("should have all 7 user-defined schema paths (excluding timestamps and internal fields)", () => {
         const schemaPaths = Object.keys(userModel.schema.paths).filter(
             (path) => !path.startsWith("_") && path !== "__v"
         );
-        // name, email, password, phone, address, answer, role, createdAt, updatedAt
+        // 7 user-defined fields: name, email, password, phone, address, answer, role
         expect(schemaPaths).toContain("name");
         expect(schemaPaths).toContain("email");
         expect(schemaPaths).toContain("password");
@@ -219,44 +219,45 @@ describe("User Model Schema", () => {
         expect(schemaPaths).toContain("answer");
         expect(schemaPaths).toContain("role");
     });
+});
 
 const User = userModel;
 
 describe("userModel", () => {
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("requires the mandatory fields", () => {
-    // Arrange
-    const user = new User({});
+    // ZYON AARONEL WEE ZHUN WEI, A0277598B
+    it("requires the mandatory fields", () => {
+        // Arrange
+        const user = new User({});
 
-    // Act
-    const error = user.validateSync();
+        // Act
+        const error = user.validateSync();
 
-    // Assert
-    expect(error).toBeDefined();
-    expect(error.errors).toHaveProperty("name");
-    expect(error.errors).toHaveProperty("email");
-    expect(error.errors).toHaveProperty("password");
-    expect(error.errors).toHaveProperty("phone");
-    expect(error.errors).toHaveProperty("address");
-    expect(error.errors).toHaveProperty("answer");
-  });
-
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("defaults role to 0 when not provided", () => {
-    // Arrange
-    const user = new User({
-      name: "Jane",
-      email: "jane@example.com",
-      password: "pass123",
-      phone: "12345678",
-      address: "123 Street",
-      answer: "blue",
+        // Assert
+        expect(error).toBeDefined();
+        expect(error.errors).toHaveProperty("name");
+        expect(error.errors).toHaveProperty("email");
+        expect(error.errors).toHaveProperty("password");
+        expect(error.errors).toHaveProperty("phone");
+        expect(error.errors).toHaveProperty("address");
+        expect(error.errors).toHaveProperty("answer");
     });
 
-    // Act
-    const role = user.role;
+    // ZYON AARONEL WEE ZHUN WEI, A0277598B
+    it("defaults role to 0 when not provided", () => {
+        // Arrange
+        const user = new User({
+            name: "Jane",
+            email: "jane@example.com",
+            password: "pass123",
+            phone: "12345678",
+            address: "123 Street",
+            answer: "blue",
+        });
 
-    // Assert
-    expect(role).toBe(0);
-  });
+        // Act
+        const role = user.role;
+
+        // Assert
+        expect(role).toBe(0);
+    });
 });

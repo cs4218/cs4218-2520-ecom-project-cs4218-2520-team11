@@ -306,7 +306,7 @@ describe("Search Results Page", () => {
     });
 
     // Antony Swami Alfred Ben, A0253016R
-    it('should render the "Search Resuts" heading text', () => {
+    it('should render the "Search Results" heading text', () => {
         useSearch.mockReturnValue([{ keyword: "", results: [] }, mockSetValues]);
 
         render(
@@ -315,8 +315,7 @@ describe("Search Results Page", () => {
             </MemoryRouter>
         );
 
-        // Note: the source code has a typo "Resuts" instead of "Results"
-        expect(screen.getByText("Search Resuts")).toBeInTheDocument();
+        expect(screen.getByText("Search Results")).toBeInTheDocument();
     });
 
     // Antony Swami Alfred Ben, A0253016R
