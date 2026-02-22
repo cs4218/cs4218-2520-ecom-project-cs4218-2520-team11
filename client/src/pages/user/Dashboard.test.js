@@ -211,3 +211,25 @@ describe("Dashboard Component", () => {
         expect(dashboardDiv).toBeInTheDocument();
     });
 });
+
+describe('User Dashboard main', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    // ZYON AARONEL WEE ZHUN WEI, A0277598B
+    it("renders user details from auth context", () => {
+        // Arrange
+        useAuth.mockReturnValue([
+            { user: { name: "Jane", email: "jane@example.com", address: "Main St" } },
+        ]);
+
+        // Act
+        render(<Dashboard />);
+
+        // Assert
+        expect(screen.getByText("Jane")).toBeInTheDocument();
+        expect(screen.getByText("jane@example.com")).toBeInTheDocument();
+        expect(screen.getByText("Main St")).toBeInTheDocument();
+    });
+});
