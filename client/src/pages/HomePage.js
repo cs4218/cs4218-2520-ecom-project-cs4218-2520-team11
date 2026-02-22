@@ -42,7 +42,7 @@ const HomePage = () => {
       setLoading(true);
       const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
       setLoading(false);
-      setProducts(data.products);
+      setProducts(data.products.sort((a, b) => a.name.localeCompare(b.name)));
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -91,21 +91,32 @@ const HomePage = () => {
   }, [checked.length, radio.length]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (checked.length || radio.length) filterProduct(); 
   }, [checked, radio]);
 
   //get filterd product
   const filterProduct = async () => {
-    try {
-      const { data } = await axios.post("/api/v1/product/product-filters", {
-        checked,
-        radio,
-      });
-      setProducts(data?.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    console.log('SENDING TO BACKEND:', { 
+      checked, 
+      radio,
+      checkedType: Array.isArray(checked) ? 'array' : typeof checked,
+      radioType: Array.isArray(radio) ? 'array' : typeof radio
+    });
+    
+    const { data } = await axios.post("/api/v1/product/product-filters", {
+      checked,
+      radio,
+    });
+    
+    console.log('RESPONSE:', data);
+    setProducts(data?.products);
+  } catch (error) {
+    console.log('ERROR RESPONSE:', error.response?.data); 
+    console.log('ERROR STATUS:', error.response?.status);
+  }
+};
+
   return (
     <Layout title={"ALL Products - Best offers "}>
       {/* banner image */}
@@ -132,13 +143,18 @@ const HomePage = () => {
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
+            <Radio.Group onChange={(e) => {
+              const index = e.target.value;
+              const selectedPrice = Prices[index].array;
+              console.log('Setting radio to:', selectedPrice); // Debug
+              setRadio(selectedPrice); // This should be [min, max]
+            }}>
+              {Prices?.map((p, index) => (
                 <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
+                  <Radio value={index}>{p.name}</Radio>
                 </div>
               ))}
-            </Radio.Group>
+          </Radio.Group>
           </div>
           <div className="d-flex flex-column">
             <button
@@ -152,13 +168,14 @@ const HomePage = () => {
         <div className="col-md-9 ">
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
-            {products?.map((p) => (
+            { loading ? <div className="text-center">Loading...</div> : products?.map((p) => (
               <div className="card m-2" key={p._id}>
-                <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
+                   <img
+                    src={`/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name || 'Product'}
+                    />
+                  
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
@@ -209,10 +226,13 @@ const HomePage = () => {
                 {loading ? (
                   "Loading ..."
                 ) : (
-                  <>
-                    {" "}
-                    Loadmore <AiOutlineReload />
-                  </>
+                  
+
+                  <span style={{ display: "flex", alignItems: "center", border: "1px solid black", padding: "5px", borderRadius: "5px" }}>
+                    
+                    Load More 🔄
+                  </span>
+                
                 )}
               </button>
             )}

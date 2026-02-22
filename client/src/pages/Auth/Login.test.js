@@ -94,6 +94,7 @@ describe('Login Component', () => {
                 token: 'mockToken'
             }
         });
+        axios.get.mockResolvedValueOnce({ data: { categories: [] } });
 
         const { getByPlaceholderText, getByText } = render(
             <MemoryRouter initialEntries={['/login']}>
@@ -120,6 +121,7 @@ describe('Login Component', () => {
 
     it('should display error message on failed login', async () => {
         axios.post.mockRejectedValueOnce({ message: 'Invalid credentials' });
+        axios.get.mockResolvedValueOnce({ data: { categories: [] } });
 
         const { getByPlaceholderText, getByText } = render(
             <MemoryRouter initialEntries={['/login']}>
