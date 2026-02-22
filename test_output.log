@@ -1,0 +1,591 @@
+
+> ecom@1.0.0 test:backend
+> node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.backend.config.js
+
+PASS backend controllers/categoryController.test.js
+  ● Console
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/categoryController.test.js:264:21)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/categoryController.js:26:13)
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/categoryController.test.js:363:59)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/categoryController.js:51:13)
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/categoryController.test.js:444:59)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/categoryController.js:108:13)
+
+PASS backend controllers/productController.test.js
+  ● Console
+
+    console.log
+      Error: Database connection failed
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:105:23)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:300:13)
+
+    console.log
+      Error: Database connection failed
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:151:23)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:226:13)
+
+    console.log
+      Error: Database connection failed
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:221:21)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:274:13)
+
+    console.log
+      Error: Database connection failed
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:372:27)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:208:13)
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:1180:52)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:55:13)
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:1401:58)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:186:13)
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:1492:47)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:137:13)
+
+    console.log
+      Error: Connection lost
+          at Function.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:1512:13)
+          at /Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:397:39
+          at Function.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:404:13)
+          at Function.mockConstructor [as findByIdAndDelete] (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:148:19)
+          at findByIdAndDelete (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.js:131:24)
+          at Object.deleteProductController (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/productController.test.js:1516:11)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/productController.js:137:13)
+
+FAIL backend models/userModel.test.js
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/models/userModel.test.js: Unexpected token (263:0)
+
+      261 |   });
+      262 | });
+    > 263 |
+          | ^
+
+      at constructor (node_modules/@babel/parser/src/parse-error.ts:95:45)
+      at JSXParserMixin.toParseError [as raise] (node_modules/@babel/parser/src/tokenizer/index.ts:1497:19)
+      at JSXParserMixin.raise [as unexpected] (node_modules/@babel/parser/src/tokenizer/index.ts:1537:16)
+      at JSXParserMixin.unexpected (node_modules/@babel/parser/src/parser/expression.ts:1330:16)
+      at JSXParserMixin.parseExprAtom (node_modules/@babel/parser/src/plugins/jsx/index.ts:583:22)
+      at JSXParserMixin.parseExprAtom [as parseExprSubscripts] (node_modules/@babel/parser/src/parser/expression.ts:723:23)
+      at JSXParserMixin.parseExprSubscripts [as parseUpdate] (node_modules/@babel/parser/src/parser/expression.ts:702:21)
+      at JSXParserMixin.parseUpdate [as parseMaybeUnary] (node_modules/@babel/parser/src/parser/expression.ts:664:23)
+      at JSXParserMixin.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (node_modules/@babel/parser/src/parser/expression.ts:398:14)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate [as parseExprOps] (node_modules/@babel/parser/src/parser/expression.ts:410:23)
+      at JSXParserMixin.parseExprOps [as parseMaybeConditional] (node_modules/@babel/parser/src/parser/expression.ts:365:23)
+      at JSXParserMixin.parseMaybeConditional [as parseMaybeAssign] (node_modules/@babel/parser/src/parser/expression.ts:296:21)
+      at JSXParserMixin.parseMaybeAssign [as parseExpressionBase] (node_modules/@babel/parser/src/parser/expression.ts:221:23)
+      at parseExpressionBase (node_modules/@babel/parser/src/parser/expression.ts:212:39)
+      at JSXParserMixin.callback [as allowInAnd] (node_modules/@babel/parser/src/parser/expression.ts:3123:16)
+      at JSXParserMixin.allowInAnd [as parseExpression] (node_modules/@babel/parser/src/parser/expression.ts:212:17)
+      at JSXParserMixin.parseExpression [as parseStatementContent] (node_modules/@babel/parser/src/parser/statement.ts:642:23)
+      at JSXParserMixin.parseStatementContent [as parseStatementLike] (node_modules/@babel/parser/src/parser/statement.ts:437:17)
+      at JSXParserMixin.parseStatementLike [as parseStatementListItem] (node_modules/@babel/parser/src/parser/statement.ts:386:17)
+      at JSXParserMixin.parseStatementListItem [as parseBlockOrModuleBlockBody] (node_modules/@babel/parser/src/parser/statement.ts:1403:16)
+      at JSXParserMixin.parseBlockOrModuleBlockBody [as parseBlockBody] (node_modules/@babel/parser/src/parser/statement.ts:1376:10)
+      at JSXParserMixin.parseBlockBody [as parseBlock] (node_modules/@babel/parser/src/parser/statement.ts:1344:10)
+      at JSXParserMixin.parseBlock [as parseFunctionBody] (node_modules/@babel/parser/src/parser/expression.ts:2571:24)
+      at JSXParserMixin.parseFunctionBody [as parseArrowExpression] (node_modules/@babel/parser/src/parser/expression.ts:2512:10)
+      at JSXParserMixin.parseArrowExpression [as parseParenAndDistinguishExpression] (node_modules/@babel/parser/src/parser/expression.ts:1803:12)
+      at JSXParserMixin.parseParenAndDistinguishExpression (node_modules/@babel/parser/src/parser/expression.ts:1140:21)
+      at JSXParserMixin.parseExprAtom (node_modules/@babel/parser/src/plugins/jsx/index.ts:583:22)
+      at JSXParserMixin.parseExprAtom [as parseExprSubscripts] (node_modules/@babel/parser/src/parser/expression.ts:723:23)
+      at JSXParserMixin.parseExprSubscripts [as parseUpdate] (node_modules/@babel/parser/src/parser/expression.ts:702:21)
+      at JSXParserMixin.parseUpdate [as parseMaybeUnary] (node_modules/@babel/parser/src/parser/expression.ts:664:23)
+      at JSXParserMixin.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (node_modules/@babel/parser/src/parser/expression.ts:398:14)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate [as parseExprOps] (node_modules/@babel/parser/src/parser/expression.ts:410:23)
+      at JSXParserMixin.parseExprOps [as parseMaybeConditional] (node_modules/@babel/parser/src/parser/expression.ts:365:23)
+      at JSXParserMixin.parseMaybeConditional [as parseMaybeAssign] (node_modules/@babel/parser/src/parser/expression.ts:296:21)
+      at parseMaybeAssign (node_modules/@babel/parser/src/parser/expression.ts:252:12)
+      at JSXParserMixin.callback [as allowInAnd] (node_modules/@babel/parser/src/parser/expression.ts:3128:12)
+      at JSXParserMixin.allowInAnd [as parseMaybeAssignAllowIn] (node_modules/@babel/parser/src/parser/expression.ts:251:17)
+      at JSXParserMixin.parseMaybeAssignAllowIn [as parseExprListItem] (node_modules/@babel/parser/src/parser/expression.ts:2734:18)
+      at JSXParserMixin.parseExprListItem [as parseCallExpressionArguments] (node_modules/@babel/parser/src/parser/expression.ts:1019:14)
+      at JSXParserMixin.parseCallExpressionArguments [as parseCoverCallAndAsyncArrowHead] (node_modules/@babel/parser/src/parser/expression.ts:897:29)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead [as parseSubscript] (node_modules/@babel/parser/src/parser/expression.ts:786:19)
+      at JSXParserMixin.parseSubscript [as parseSubscripts] (node_modules/@babel/parser/src/parser/expression.ts:744:19)
+      at JSXParserMixin.parseSubscripts [as parseExprSubscripts] (node_modules/@babel/parser/src/parser/expression.ts:729:17)
+      at JSXParserMixin.parseExprSubscripts [as parseUpdate] (node_modules/@babel/parser/src/parser/expression.ts:702:21)
+      at JSXParserMixin.parseUpdate [as parseMaybeUnary] (node_modules/@babel/parser/src/parser/expression.ts:664:23)
+      at JSXParserMixin.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (node_modules/@babel/parser/src/parser/expression.ts:398:14)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate [as parseExprOps] (node_modules/@babel/parser/src/parser/expression.ts:410:23)
+      at JSXParserMixin.parseExprOps [as parseMaybeConditional] (node_modules/@babel/parser/src/parser/expression.ts:365:23)
+      at JSXParserMixin.parseMaybeConditional [as parseMaybeAssign] (node_modules/@babel/parser/src/parser/expression.ts:296:21)
+      at JSXParserMixin.parseMaybeAssign [as parseExpressionBase] (node_modules/@babel/parser/src/parser/expression.ts:221:23)
+      at parseExpressionBase (node_modules/@babel/parser/src/parser/expression.ts:212:39)
+      at JSXParserMixin.callback [as allowInAnd] (node_modules/@babel/parser/src/parser/expression.ts:3123:16)
+      at JSXParserMixin.allowInAnd [as parseExpression] (node_modules/@babel/parser/src/parser/expression.ts:212:17)
+      at JSXParserMixin.parseExpression [as parseStatementContent] (node_modules/@babel/parser/src/parser/statement.ts:642:23)
+      at JSXParserMixin.parseStatementContent [as parseStatementLike] (node_modules/@babel/parser/src/parser/statement.ts:437:17)
+      at JSXParserMixin.parseStatementLike [as parseModuleItem] (node_modules/@babel/parser/src/parser/statement.ts:374:17)
+      at JSXParserMixin.parseModuleItem [as parseBlockOrModuleBlockBody] (node_modules/@babel/parser/src/parser/statement.ts:1402:16)
+      at JSXParserMixin.parseBlockOrModuleBlockBody [as parseBlockBody] (node_modules/@babel/parser/src/parser/statement.ts:1376:10)
+      at JSXParserMixin.parseBlockBody [as parseProgram] (node_modules/@babel/parser/src/parser/statement.ts:225:10)
+      at JSXParserMixin.parseProgram [as parseTopLevel] (node_modules/@babel/parser/src/parser/statement.ts:203:25)
+      at JSXParserMixin.parseTopLevel [as parse] (node_modules/@babel/parser/src/parser/index.ts:93:10)
+      at parse (node_modules/@babel/parser/src/index.ts:92:38)
+      at parser (node_modules/@babel/core/src/parser/index.ts:28:19)
+          at parser.next (<anonymous>)
+      at normalizeFile (node_modules/@babel/core/src/transformation/normalize-file.ts:49:24)
+          at normalizeFile.next (<anonymous>)
+      at run (node_modules/@babel/core/src/transformation/index.ts:40:36)
+          at run.next (<anonymous>)
+      at transform (node_modules/@babel/core/src/transform.ts:29:20)
+          at transform.next (<anonymous>)
+      at evaluateSync (node_modules/gensync/index.js:251:28)
+      at sync (node_modules/gensync/index.js:89:14)
+      at fn (node_modules/@babel/core/src/errors/rewrite-stack-trace.ts:99:14)
+      at transformSync (node_modules/@babel/core/src/transform.ts:66:52)
+      at ScriptTransformer.transformSource (node_modules/@jest/transform/build/ScriptTransformer.js:545:31)
+      at ScriptTransformer._transformAndBuildScript (node_modules/@jest/transform/build/ScriptTransformer.js:674:40)
+      at ScriptTransformer.transform (node_modules/@jest/transform/build/ScriptTransformer.js:726:19)
+
+PASS backend helpers/authHelper.test.js
+  ● Console
+
+    console.log
+      Error: Bcrypt hashing failed
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/helpers/authHelper.test.js:30:25)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (helpers/authHelper.js:10:17)
+
+PASS backend models/categoryModel.test.js
+PASS backend middlewares/authMiddleware.test.js
+  ● Console
+
+    console.log
+      Error: Invalid Token
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/middlewares/authMiddleware.test.js:41:53)
+          at /Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:397:39
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:404:13)
+          at Object.mockConstructor [as verify] (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:148:19)
+          at verify (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/middlewares/authMiddleware.js:7:28)
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/middlewares/authMiddleware.test.js:43:28)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (middlewares/authMiddleware.js:14:17)
+
+(node:71168) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL backend controllers/productController.payment.test.js
+  ● productController payment › returns a client token when gateway succeeds
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: {}, Any<Function>
+
+    Number of calls: 0
+
+      61 |
+      62 |     // Assert
+    > 63 |     expect(mockGenerate).toHaveBeenCalledWith({}, expect.any(Function));
+         |                          ^
+      64 |     expect(res.send).toHaveBeenCalledWith(response);
+      65 |   });
+      66 |
+
+      at Object.toHaveBeenCalledWith (controllers/productController.payment.test.js:63:26)
+
+  ● productController payment › returns 500 when gateway token generation fails
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: 500
+
+    Number of calls: 0
+
+      77 |
+      78 |     // Assert
+    > 79 |     expect(res.status).toHaveBeenCalledWith(500);
+         |                        ^
+      80 |     expect(res.send).toHaveBeenCalledWith(error);
+      81 |   });
+      82 |
+
+      at Object.toHaveBeenCalledWith (controllers/productController.payment.test.js:79:24)
+
+  ● productController payment › creates an order and responds ok for successful payment
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: ObjectContaining {"amount": 25, "options": {"submitForSettlement": true}, "paymentMethodNonce": "nonce-123"}, Any<Function>
+
+    Number of calls: 0
+
+      103 |
+      104 |     // Assert
+    > 105 |     expect(mockSale).toHaveBeenCalledWith(
+          |                      ^
+      106 |       expect.objectContaining({
+      107 |         amount: 25,
+      108 |         paymentMethodNonce: "nonce-123",
+
+      at Object.toHaveBeenCalledWith (controllers/productController.payment.test.js:105:22)
+
+  ● productController payment › returns 500 when payment fails
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: 500
+
+    Number of calls: 0
+
+      140 |
+      141 |     // Assert
+    > 142 |     expect(res.status).toHaveBeenCalledWith(500);
+          |                        ^
+      143 |     expect(res.send).toHaveBeenCalledWith(error);
+      144 |     expect(orderModelMock).not.toHaveBeenCalled();
+      145 |   });
+
+      at Object.toHaveBeenCalledWith (controllers/productController.payment.test.js:142:24)
+
+PASS backend controllers/authController.test.js
+  ● Console
+
+    console.log
+      Error: DB Error
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.test.js:189:45)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/authController.js:60:13)
+
+    console.log
+      Error: Fail
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.test.js:263:45)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/authController.js:113:13)
+
+    console.log
+      Error: Fail
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.test.js:336:45)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/authController.js:152:13)
+
+    console.log
+      Error: Simulated Crash
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.test.js:356:15)
+          at /Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:397:39
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:404:13)
+          at Object.mockConstructor [as send] (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-mock/build/index.js:148:19)
+          at send (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.js:164:9)
+          at Object.<anonymous> (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/controllers/authController.test.js:359:21)
+          at Promise.then.completed (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at _runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/runTest.js:444:34)
+          at Object.worker (/Users/alfredben/dev/nus/y4s2/cs4218-2520-ecom-project-cs4218-2520-team11/node_modules/jest-runner/build/testWorker.js:106:12)
+
+      at log (controllers/authController.js:166:13)
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |   94.79 |    88.88 |    90.9 |   94.73 |                   
+ controllers            |   94.73 |    88.88 |    90.9 |   94.67 |                   
+  categoryController.js |     100 |      100 |     100 |     100 |                   
+  productController.js  |   93.18 |     87.5 |   88.23 |   93.07 | 334-341,362-375   
+ models                 |     100 |      100 |     100 |     100 |                   
+  categoryModel.js      |     100 |      100 |     100 |     100 |                   
+  userModel.js          |     100 |      100 |     100 |     100 |                   
+------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 2 failed, 6 passed, 8 total
+Tests:       4 failed, 106 passed, 110 total
+Snapshots:   0 total
+Time:        2.266 s
+Ran all test suites.
