@@ -512,7 +512,7 @@ describe('Get Products (getProductController)', () => {
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       success: false,
-      message: "Erorr in getting products",
+      message: "Error in getting products",
       error: "Database connection failed"
     });
 
@@ -603,7 +603,7 @@ describe('Get Single Product (getSingleProductController)', () => {
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       success: false,
-      message: "Eror while getitng single product",
+      message: "Error while getting single product",
       error: mockError
     });
 
@@ -688,7 +688,7 @@ describe('Product Photo (productPhotoController)', () => {
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       success: false,
-      message: "Erorr while getting photo",
+      message: "Error while getting photo",
       error: mockError
     });
 
@@ -925,10 +925,6 @@ describe('Product Category (productCategoryController)', () => {
   });
 });
 
-
-
-
-// ─── Module Mocks ────────────────────────────────────────────────────────────
 
 jest.mock("../models/productModel.js", () => {
   const MockProductModel = jest.fn().mockImplementation(() => ({
@@ -1423,6 +1419,10 @@ describe("updateProductController", () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 describe("deleteProductController", () => {
+  let req, res;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
     req = { params: { pid: "prod1" } };
     res = buildRes();
   });
@@ -1525,17 +1525,3 @@ describe("deleteProductController", () => {
     );
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
