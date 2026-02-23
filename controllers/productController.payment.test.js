@@ -46,6 +46,25 @@ describe("productController payment", () => {
   });
 
   // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("logs error when token generation throws", async () => {
+    // Arrange
+    const req = {};
+    const res = createRes();
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    const thrown = new Error("generate failed");
+    mockGenerate.mockImplementation(() => {
+      throw thrown;
+    });
+
+    // Act
+    await braintreeTokenController(req, res);
+
+    // Assert
+    expect(logSpy).toHaveBeenCalledWith(thrown);
+    logSpy.mockRestore();
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
   it("returns a client token when gateway succeeds", async () => {
     // Arrange
     const req = {};
@@ -75,6 +94,28 @@ describe("productController payment", () => {
     // Assert
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith(error);
+  });
+
+  // ZYON AARONEL WEE ZHUN WEI, A0277598B
+  it("logs error when payment sale throws", async () => {
+    // Arrange
+    const req = {
+      body: { nonce: "nonce-999", cart: [] },
+      user: { _id: "user-9" },
+    };
+    const res = createRes();
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    const thrown = new Error("sale failed");
+    mockSale.mockImplementation(() => {
+      throw thrown;
+    });
+
+    // Act
+    await brainTreePaymentController(req, res);
+
+    // Assert
+    expect(logSpy).toHaveBeenCalledWith(thrown);
+    logSpy.mockRestore();
   });
 
   // ZYON AARONEL WEE ZHUN WEI, A0277598B
