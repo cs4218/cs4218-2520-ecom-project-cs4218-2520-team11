@@ -6,7 +6,7 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 
 ## MS1 CI Status
 
-**MS1 CI Log:** [https://github.com/cs4218/cs4218-2520-ecom-project-cs4218-2520-team11/actions/runs/21815142531/job/62935151413]
+**MS1 CI Log:** [https://github.com/cs4218/cs4218-2520-ecom-project-cs4218-2520-team11/actions/runs/22292027827/job/64481056123?pr=15]
 
 ## 2. Website Features
 
@@ -27,7 +27,6 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 ### 1. Installing Node.js
 
 1. **Download and Install Node.js**:
-
    - Visit [nodejs.org](https://nodejs.org) to download and install Node.js.
 
 2. **Verify Installation**:
@@ -54,7 +53,6 @@ We use Docker to run MongoDB locally. This ensures all developers have an identi
 To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from GitHub, follow these general steps:
 
 1. **Clone the Repository**
-
    - Go to the GitHub repository of the MERN app.
    - Click on the "Code" button and copy the URL of the repository.
    - Open your terminal or command prompt.
@@ -65,7 +63,6 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
    - Navigate into the cloned directory.
 
 2. **Install Frontend and Backend Dependencies**
-
    - Run the following command in your project's root directory:
 
      ```bash
@@ -80,6 +77,7 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
    ```
 
    if anything goes wrong and you need to reset the database (revert back to seed data)
+
    ```bash
    npm run db:reset
    ```
@@ -89,19 +87,19 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
    ```bash
    npm run dev
    ```
-   
+
    Navigate to `http://localhost:3000` to access the application.
 
 ### Database Management Commands
 
-| Command | Description |
-|---------|-------------|
-| `npm run db:start` | Start MongoDB container |
-| `npm run db:stop` | Stop MongoDB container |
-| `npm run db:seed` | Import/refresh seed data |
-| `npm run db:reset` | Reset database (stop, delete data, restart, re-seed) |
-| `npm run db:logs` | View MongoDB logs |
-| `npm run db:status` | Check container status |
+| Command             | Description                                          |
+| ------------------- | ---------------------------------------------------- |
+| `npm run db:start`  | Start MongoDB container                              |
+| `npm run db:stop`   | Stop MongoDB container                               |
+| `npm run db:seed`   | Import/refresh seed data                             |
+| `npm run db:reset`  | Reset database (stop, delete data, restart, re-seed) |
+| `npm run db:logs`   | View MongoDB logs                                    |
+| `npm run db:status` | Check container status                               |
 
 ### Connecting with MongoDB Compass (Optional)
 
@@ -131,7 +129,6 @@ To begin unit testing with Jest in your project, follow these steps:
 3. **Run Tests**  
    Execute your tests using Jest to ensure that your components meet the expected behaviour.  
    You can run the tests by using the following command in the root of the directory:
-
    - **Frontend tests**
 
      ```bash
@@ -148,3 +145,20 @@ To begin unit testing with Jest in your project, follow these steps:
      ```bash
      npm run test
      ```
+
+## Contributions
+
+Julius Bryan Reynon Gambe, A0252251R
+Features: Admin Actions, Admin View Products, Admin View Users + Admin View Orders
+
+Huang Yi Chee, A0259617R
+Features: Protected Routes, Registration, Login, Profile
+
+Zyon Aaronel Wee Zhun Wei, A0277598B
+Features: Category, Payment, Admin Dashboard, General
+
+Antony Swami Alfred Ben, A0253016R
+Features: General, Order, Search
+
+Gabriel Seethor, A0257008H
+Features: Product, Contact, Home, Cart, Policy
