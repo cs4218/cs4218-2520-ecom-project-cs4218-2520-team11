@@ -13,6 +13,7 @@ export default {
 
   // Scope coverage to MS1 assigned backend files
   collectCoverageFrom: [
+    "controllers/authController.js",
     "controllers/categoryController.js",
     "controllers/productController.js",
     "models/categoryModel.js",

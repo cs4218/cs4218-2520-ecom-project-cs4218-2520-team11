@@ -1,8 +1,9 @@
-import { 
-  registerController, 
-  loginController, 
-  forgotPasswordController, 
-  testController 
+import {
+  registerController,
+  loginController,
+  forgotPasswordController,
+  testController,
+  updateProfileController
 } from "./authController.js";
 import userModel from "../models/userModel.js";
 import { hashPassword, comparePassword } from "../helpers/authHelper.js";
@@ -26,30 +27,30 @@ describe("Auth Controller Test Suite", () => {
   });
 
   describe("registerController", () => {
-    
+
     describe("Input Validation (Negative Testing)", () => {
       it("should return 400 if Name is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          email: "test@test.com", 
-          password: "123", 
-          phone: "1", 
-          address: "A", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          email: "test@test.com",
+          password: "123",
+          phone: "1",
+          address: "A",
           answer: "B",
           DOB: "2000-01-01"
         };
         await registerController(req, res);
-        expect(res.status).toHaveBeenCalledWith(400); 
+        expect(res.status).toHaveBeenCalledWith(400);
         expect(res.send).toHaveBeenCalledWith({ message: "Name is Required" });
       });
 
       it("should return 400 if Email is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          password: "123", 
-          phone: "1", 
-          address: "A", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          password: "123",
+          phone: "1",
+          address: "A",
           answer: "B",
           DOB: "2000-01-01"
         };
@@ -59,12 +60,12 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if Password is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "test@test.com", 
-          phone: "1", 
-          address: "A", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "test@test.com",
+          phone: "1",
+          address: "A",
           answer: "B",
           DOB: "2000-01-01"
         };
@@ -74,12 +75,12 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if Phone is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "test@test.com", 
-          password: "123", 
-          address: "A", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "test@test.com",
+          password: "123",
+          address: "A",
           answer: "B",
           DOB: "2000-01-01"
         };
@@ -89,12 +90,12 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if Address is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "t@t.com", 
-          password: "1", 
-          phone: "1", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "t@t.com",
+          password: "1",
+          phone: "1",
           answer: "B",
           DOB: "2000-01-01"
         };
@@ -104,12 +105,12 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if Answer is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "t@t.com", 
-          password: "1", 
-          phone: "1", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "t@t.com",
+          password: "1",
+          phone: "1",
           address: "A",
           DOB: "2000-01-01"
         };
@@ -119,14 +120,14 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if DOB is missing", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "t@t.com", 
-          password: "1", 
-          phone: "1", 
-          address: "A", 
-          answer: "B" 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "t@t.com",
+          password: "1",
+          phone: "1",
+          address: "A",
+          answer: "B"
         };
         await registerController(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
@@ -136,33 +137,33 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Business Logic (Positive/Duplicate Testing)", () => {
       it("should return 409 if user already exists", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { name: "Test", email: "exist@test.com", password: "123", phone: "1", address: "A", DOB: "2000-01-01", answer: "B" };
         userModel.findOne.mockResolvedValue({ email: "exist@test.com" });
 
         await registerController(req, res);
-        
+
         expect(res.status).toHaveBeenCalledWith(409);
         expect(res.send).toHaveBeenCalledWith(
-          expect.objectContaining({ 
-            success: false, 
-            message: "Already Register please login" 
+          expect.objectContaining({
+            success: false,
+            message: "Already Register please login"
           })
         );
       });
 
       it("should register user successfully and save ALL fields", async () => {
-      // Huang Yi Chee, A0259617R
-        req.body = { 
-          name: "Test", 
-          email: "new@test.com", 
-          password: "123", 
-          phone: "999", 
-          address: "123 St", 
+        // Huang Yi Chee, A0259617R
+        req.body = {
+          name: "Test",
+          email: "new@test.com",
+          password: "123",
+          phone: "999",
+          address: "123 St",
           answer: "Sports",
-          DOB: "2000-01-01" 
+          DOB: "2000-01-01"
         };
-        
+
         userModel.findOne.mockResolvedValue(null);
         hashPassword.mockResolvedValue("hashed_secret");
         const mockSave = jest.fn().mockResolvedValue({ success: true });
@@ -184,7 +185,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Error Handling", () => {
       it("should handle registration errors with 500", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { name: "Test", email: "new@test.com", password: "123", phone: "999", address: "123 St", DOB: "2000-01-01", answer: "Sports" };
         userModel.findOne.mockRejectedValue(new Error("DB Error"));
         await registerController(req, res);
@@ -201,7 +202,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Input Validation", () => {
       it("should return 400 if credentials missing", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { email: "" };
         await loginController(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
@@ -213,7 +214,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Authentication Logic", () => {
       it("should return 404 if user not found", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = validLogin;
         userModel.findOne.mockResolvedValue(null);
         await loginController(req, res);
@@ -224,7 +225,7 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 401 if password invalid", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = validLogin;
         userModel.findOne.mockResolvedValue({ _id: "1", password: "hash" });
         comparePassword.mockResolvedValue(false);
@@ -237,7 +238,7 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 200 and token on success", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = validLogin;
         userModel.findOne.mockResolvedValue({ _id: "1", email: "test@example.com", role: 0 });
         comparePassword.mockResolvedValue(true);
@@ -258,7 +259,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Error Handling", () => {
       it("should handle login errors with 500", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = validLogin;
         userModel.findOne.mockRejectedValue(new Error("Fail"));
         await loginController(req, res);
@@ -275,7 +276,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Input Validation", () => {
       it("should return 400 if Email missing", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { ...resetBody, email: "" };
         await forgotPasswordController(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
@@ -283,7 +284,7 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if Answer missing", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { ...resetBody, answer: "" };
         await forgotPasswordController(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
@@ -291,7 +292,7 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should return 400 if New Password missing", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = { ...resetBody, newPassword: "" };
         await forgotPasswordController(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
@@ -301,7 +302,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Password Reset Logic", () => {
       it("should return 404 if User/Answer incorrect", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = resetBody;
         userModel.findOne.mockResolvedValue(null);
         await forgotPasswordController(req, res);
@@ -312,7 +313,7 @@ describe("Auth Controller Test Suite", () => {
       });
 
       it("should reset password successfully", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = resetBody;
         userModel.findOne.mockResolvedValue({ _id: "123" });
         hashPassword.mockResolvedValue("new_hash");
@@ -331,7 +332,7 @@ describe("Auth Controller Test Suite", () => {
 
     describe("Error Handling", () => {
       it("should handle errors with 500", async () => {
-      // Huang Yi Chee, A0259617R
+        // Huang Yi Chee, A0259617R
         req.body = resetBody;
         userModel.findOne.mockRejectedValue(new Error("Fail"));
         await forgotPasswordController(req, res);
@@ -361,6 +362,156 @@ describe("Auth Controller Test Suite", () => {
       expect(res.send).toHaveBeenCalledWith(
         expect.objectContaining({ error: expect.any(Error) })
       );
+    });
+  });
+
+  // Antony Swami Alfred Ben, A0253016R
+  describe("updateProfileController", () => {
+    const existingUser = {
+      _id: "user123",
+      name: "Old Name",
+      email: "old@example.com",
+      password: "old_hashed_password",
+      phone: "11111111",
+      address: "Old Address",
+    };
+
+    beforeEach(() => {
+      req.user = { _id: "user123" };
+      userModel.findById.mockResolvedValue(existingUser);
+    });
+
+    describe("Input Validation", () => {
+      // Antony Swami Alfred Ben, A0253016R
+      it("should return error when password is provided but less than 6 characters", async () => {
+        req.body = { password: "short" };
+
+        await updateProfileController(req, res);
+
+        expect(res.json).toHaveBeenCalledWith({
+          error: "Password is required and 6 character long",
+        });
+        expect(userModel.findByIdAndUpdate).not.toHaveBeenCalled();
+      });
+
+      // Antony Swami Alfred Ben, A0253016R
+      it("should not hash password when no password is provided", async () => {
+        req.body = { name: "New Name" };
+        userModel.findByIdAndUpdate.mockResolvedValue({ ...existingUser, name: "New Name" });
+
+        await updateProfileController(req, res);
+
+        expect(hashPassword).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("Successful Update", () => {
+      // Antony Swami Alfred Ben, A0253016R
+      it("should update user profile with new name, phone, and address", async () => {
+        req.body = { name: "New Name", phone: "99999999", address: "New Address" };
+        const updatedUser = { ...existingUser, name: "New Name", phone: "99999999", address: "New Address" };
+        userModel.findByIdAndUpdate.mockResolvedValue(updatedUser);
+
+        await updateProfileController(req, res);
+
+        expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
+          "user123",
+          expect.objectContaining({
+            name: "New Name",
+            phone: "99999999",
+            address: "New Address",
+          }),
+          { new: true }
+        );
+        expect(res.status).toHaveBeenCalledWith(200);
+      });
+
+      // Antony Swami Alfred Ben, A0253016R
+      it("should hash and update password when valid password (≥6 chars) is provided", async () => {
+        req.body = { password: "newpassword123" };
+        hashPassword.mockResolvedValue("new_hashed_password");
+        userModel.findByIdAndUpdate.mockResolvedValue({ ...existingUser, password: "new_hashed_password" });
+
+        await updateProfileController(req, res);
+
+        expect(hashPassword).toHaveBeenCalledWith("newpassword123");
+        expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
+          "user123",
+          expect.objectContaining({
+            password: "new_hashed_password",
+          }),
+          { new: true }
+        );
+      });
+
+      // Antony Swami Alfred Ben, A0253016R
+      it("should fall back to existing user values when fields are not provided", async () => {
+        req.body = {};
+        userModel.findByIdAndUpdate.mockResolvedValue(existingUser);
+
+        await updateProfileController(req, res);
+
+        expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
+          "user123",
+          {
+            name: "Old Name",
+            password: "old_hashed_password",
+            phone: "11111111",
+            address: "Old Address",
+          },
+          { new: true }
+        );
+      });
+
+      // Antony Swami Alfred Ben, A0253016R
+      it("should return 200 with success message and updated user", async () => {
+        req.body = { name: "Updated" };
+        const updatedUser = { ...existingUser, name: "Updated" };
+        userModel.findByIdAndUpdate.mockResolvedValue(updatedUser);
+
+        await updateProfileController(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.send).toHaveBeenCalledWith({
+          success: true,
+          message: "Profile Updated Successfully",
+          updatedUser,
+        });
+      });
+    });
+
+    describe("Error Handling", () => {
+      // Antony Swami Alfred Ben, A0253016R
+      it("should return 400 when findById throws an error", async () => {
+        userModel.findById.mockRejectedValue(new Error("DB Error"));
+        req.body = { name: "Test" };
+
+        await updateProfileController(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.send).toHaveBeenCalledWith(
+          expect.objectContaining({
+            success: false,
+            message: "Error While Updating Profile",
+          })
+        );
+      });
+
+      // Antony Swami Alfred Ben, A0253016R
+      it("should return 400 when findByIdAndUpdate throws an error", async () => {
+        req.body = { name: "Test" };
+        userModel.findByIdAndUpdate.mockRejectedValue(new Error("Update failed"));
+
+        await updateProfileController(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.send).toHaveBeenCalledWith(
+          expect.objectContaining({
+            success: false,
+            message: "Error While Updating Profile",
+          })
+        );
+      });
     });
   });
 });
