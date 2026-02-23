@@ -12,19 +12,27 @@ export default {
   collectCoverage: true,
 
   // Scope coverage to MS1 assigned backend files
-  collectCoverageFrom: [
+    collectCoverageFrom: [
+    "helpers/authHelper.js",
+    "middlewares/authMiddleware.js",
+
     "controllers/authController.js",
     "controllers/categoryController.js",
     "controllers/productController.js",
-    "models/categoryModel.js",
+
     "models/userModel.js",
+    "models/orderModel.js",
+    "models/productModel.js",
+    "models/categoryModel.js",
+
+    "config/db.js",
   ],
 
-  // Keep thresholds low to avoid failing due to partial controller scope
+  // Keep thresholds lower to avoid failing due to partial controller scope
   coverageThreshold: {
     global: {
-      lines: 9,
-      functions: 9,
+      lines: 70,
+      functions: 70,
     },
   },
 };
