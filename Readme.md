@@ -6,7 +6,7 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 
 ## MS1 CI Status
 
-**MS1 CI Log:** [https://github.com/cs4218/cs4218-2520-ecom-project-cs4218-2520-team11/actions/runs/22292027827/job/64481056123?pr=15]
+**MS1 CI Log:** [https://github.com/cs4218/cs4218-2520-ecom-project-cs4218-2520-team11/actions/runs/22292370589/job/64481995214]
 
 ## 2. Website Features
 
