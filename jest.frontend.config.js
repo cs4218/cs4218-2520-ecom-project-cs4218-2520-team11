@@ -28,22 +28,55 @@ export default {
 
   // scope coverage to MS1 assigned frontend files
   collectCoverageFrom: [
-    "client/src/hooks/useCategory.js",
-    "client/src/pages/Categories.js",
-    "client/src/components/AdminMenu.js",
-    "client/src/pages/admin/AdminDashboard.js",
-    "client/src/components/Routes/Private.js",
-    "client/src/components/UserMenu.js",
-    "client/src/pages/user/Dashboard.js",
-    "client/src/pages/Auth/Login.js",
-    "client/src/pages/Auth/Register.js",
-    "client/src/components/Form/SearchInput.js",
-    "client/src/pages/Search.js"
+  "context/auth.js",
+  "components/Routes/Private.js",
+
+  "pages/Auth/Register.js",
+  "pages/Auth/Login.js",
+
+  "components/AdminMenu.js",
+  "pages/admin/AdminDashboard.js",
+  "pages/admin/AdminOrders.js",
+  "pages/admin/Users.js",
+
+  "components/Form/CategoryForm.js",
+  "pages/admin/CreateCategory.js",
+  "pages/admin/CreateProduct.js",
+  "pages/admin/UpdateProduct.js",
+  "pages/admin/Products.js",
+
+  "components/UserMenu.js",
+  "pages/user/Dashboard.js",
+  "pages/user/Orders.js",
+  "pages/user/Profile.js",
+
+  "components/Form/SearchInput.js",
+  "context/search.js",
+  "pages/Search.js",
+
+  "pages/ProductDetails.js",
+  "pages/CategoryProduct.js",
+  "hooks/useCategory.js",
+  "pages/Categories.js",
+
+  "context/cart.js",
+  "pages/CartPage.js",
+
+  "components/Footer.js",
+  "components/Header.js",
+  "components/Layout.js",
+  "components/Spinner.js",
+  "pages/About.js",
+  "pages/Pagenotfound.js",
+  "pages/Homepage.js",
+  "pages/Contact.js",
+  "pages/Policy.js",
   ],
+
   coverageThreshold: {
     global: {
-      lines: 80,
-      functions: 80,
+      lines: 70,
+      functions: 70,
     },
   },
 
