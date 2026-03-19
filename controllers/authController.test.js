@@ -599,7 +599,7 @@ describe("Auth Controller Test Suite", () => {
       expect(orderModel.find).toHaveBeenCalledWith({});
       expect(mockChain.populate).toHaveBeenCalledWith("products", "-photo");
       expect(mockChain.populate).toHaveBeenCalledWith("buyer", "name");
-      expect(mockChain.sort).toHaveBeenCalledWith({ createdAt: "-1" });
+      expect(mockChain.sort).toHaveBeenCalledWith({ createdAt: -1 });
       expect(res.json).toHaveBeenCalledWith(mockOrders);
     });
 

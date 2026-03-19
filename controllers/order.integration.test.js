@@ -290,7 +290,7 @@ describe("Order endpoints integration tests", () => {
       const chain = orderModel.find.mock.results[0].value;
       expect(chain.populate).toHaveBeenCalledWith("products", "-photo");
       expect(chain.populate).toHaveBeenCalledWith("buyer", "name");
-      expect(chain.sort).toHaveBeenCalledWith({ createdAt: "-1" });
+      expect(chain.sort).toHaveBeenCalledWith({ createdAt: -1 });
     });
 
     it("admin sees all orders regardless of buyer", async () => {
