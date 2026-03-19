@@ -118,6 +118,9 @@ const UpdateProduct = () => {
                 size="large"
                 showSearch
                 className="form-select mb-3"
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().includes(input.toLowerCase())
+                }
                 onChange={(value) => {
                   setCategory(value);
                 }}
@@ -206,6 +209,9 @@ const UpdateProduct = () => {
                   size="large"
                   showSearch
                   className="form-select mb-3"
+                  filterOption={(input, option) =>
+                    option.children.toLowerCase().includes(input.toLowerCase())
+                  }
                   onChange={(value) => {
                     setShipping(value);
                   }}
