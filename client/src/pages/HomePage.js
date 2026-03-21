@@ -19,6 +19,7 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [loadingProductId, setLoadingProductId] = useState(null);
 
   //get all cat
   const getAllCategory = async () => {
@@ -203,25 +204,35 @@ const HomePage = () => {
                       </button>
                       <button
                         className="btn btn-dark ms-1"
-                        // Disable if total stock is 0 OR if the user already has all available stock in their cart
                         disabled={
+                          loadingProductId === p._id ||
                           p?.quantity < 1 ||
                           cart.filter((item) => item._id === p._id).length >=
                             p?.quantity
                         }
-                        onClick={() => {
+                        onClick={async () => {
                           const currentInCart = cart.filter(
                             (item) => item._id === p._id,
                           ).length;
 
                           if (currentInCart < p.quantity) {
-                            const updatedCart = [...cart, p];
-                            setCart(updatedCart);
-                            localStorage.setItem(
-                              "cart",
-                              JSON.stringify(updatedCart),
-                            );
-                            toast.success("Item Added to cart");
+                            setLoadingProductId(p._id);
+
+                            try {
+                              await new Promise((resolve) =>
+                                setTimeout(resolve, 800),
+                              );
+
+                              const updatedCart = [...cart, p];
+                              setCart(updatedCart);
+                              localStorage.setItem(
+                                "cart",
+                                JSON.stringify(updatedCart),
+                              );
+                              toast.success("Item Added to cart");
+                            } finally {
+                              setLoadingProductId(null);
+                            }
                           } else {
                             toast.error(
                               `Only ${p.quantity} units available in stock`,
@@ -229,12 +240,15 @@ const HomePage = () => {
                           }
                         }}
                       >
-                        {p?.quantity < 1
-                          ? "OUT OF STOCK"
-                          : cart.filter((item) => item._id === p._id).length >=
-                              p?.quantity
-                            ? "OUT OF STOCK"
-                            : "ADD TO CART"}
+                        {loadingProductId === p._id ? (
+                          <div>Loading...</div>
+                        ) : p?.quantity < 1 ||
+                          cart.filter((item) => item._id === p._id).length >=
+                            p?.quantity ? (
+                          "OUT OF STOCK"
+                        ) : (
+                          "ADD TO CART"
+                        )}
                       </button>
                     </div>
                   </div>
