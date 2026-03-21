@@ -91,31 +91,31 @@ const HomePage = () => {
   }, [checked.length, radio.length]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct(); 
+    if (checked.length || radio.length) filterProduct();
   }, [checked, radio]);
 
   //get filterd product
   const filterProduct = async () => {
-  try {
-    console.log('SENDING TO BACKEND:', { 
-      checked, 
-      radio,
-      checkedType: Array.isArray(checked) ? 'array' : typeof checked,
-      radioType: Array.isArray(radio) ? 'array' : typeof radio
-    });
-    
-    const { data } = await axios.post("/api/v1/product/product-filters", {
-      checked,
-      radio,
-    });
-    
-    console.log('RESPONSE:', data);
-    setProducts(data?.products);
-  } catch (error) {
-    console.log('ERROR RESPONSE:', error.response?.data); 
-    console.log('ERROR STATUS:', error.response?.status);
-  }
-};
+    try {
+      console.log("SENDING TO BACKEND:", {
+        checked,
+        radio,
+        checkedType: Array.isArray(checked) ? "array" : typeof checked,
+        radioType: Array.isArray(radio) ? "array" : typeof radio,
+      });
+
+      const { data } = await axios.post("/api/v1/product/product-filters", {
+        checked,
+        radio,
+      });
+
+      console.log("RESPONSE:", data);
+      setProducts(data?.products);
+    } catch (error) {
+      console.log("ERROR RESPONSE:", error.response?.data);
+      console.log("ERROR STATUS:", error.response?.status);
+    }
+  };
 
   return (
     <Layout title={"ALL Products - Best offers "}>
@@ -143,18 +143,20 @@ const HomePage = () => {
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => {
-              const index = e.target.value;
-              const selectedPrice = Prices[index].array;
-              console.log('Setting radio to:', selectedPrice); // Debug
-              setRadio(selectedPrice); // This should be [min, max]
-            }}>
+            <Radio.Group
+              onChange={(e) => {
+                const index = e.target.value;
+                const selectedPrice = Prices[index].array;
+                console.log("Setting radio to:", selectedPrice); // Debug
+                setRadio(selectedPrice); // This should be [min, max]
+              }}
+            >
               {Prices?.map((p, index) => (
                 <div key={p._id}>
                   <Radio value={index}>{p.name}</Radio>
                 </div>
               ))}
-          </Radio.Group>
+            </Radio.Group>
           </div>
           <div className="d-flex flex-column">
             <button
@@ -168,51 +170,77 @@ const HomePage = () => {
         <div className="col-md-9 ">
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
-            { loading ? <div className="text-center">Loading...</div> : products?.map((p) => (
-              <div className="card m-2" key={p._id}>
-                   <img
+            {loading ? (
+              <div className="text-center">Loading...</div>
+            ) : (
+              products?.map((p) => (
+                <div className="card m-2" key={p._id}>
+                  <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
-                    alt={p.name || 'Product'}
-                    />
-                  
-                <div className="card-body">
-                  <div className="card-name-price">
-                    <h5 className="card-title">{p.name}</h5>
-                    <h5 className="card-title card-price">
-                      {p.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
-                    </h5>
-                  </div>
-                  <p className="card-text ">
-                    {p.description.substring(0, 60)}...
-                  </p>
-                  <div className="card-name-price">
-                    <button
-                      className="btn btn-info ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
-                    <button
-                      className="btn btn-dark ms-1"
-                      onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify([...cart, p])
-                        );
-                        toast.success("Item Added to cart");
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
+                    alt={p.name || "Product"}
+                  />
+
+                  <div className="card-body">
+                    <div className="card-name-price">
+                      <h5 className="card-title">{p.name}</h5>
+                      <h5 className="card-title card-price">
+                        {p.price.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })}
+                      </h5>
+                    </div>
+                    <p className="card-text ">
+                      {p.description.substring(0, 60)}...
+                    </p>
+                    <div className="card-name-price">
+                      <button
+                        className="btn btn-info ms-1"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        className="btn btn-dark ms-1"
+                        // Disable if total stock is 0 OR if the user already has all available stock in their cart
+                        disabled={
+                          p?.quantity < 1 ||
+                          cart.filter((item) => item._id === p._id).length >=
+                            p?.quantity
+                        }
+                        onClick={() => {
+                          const currentInCart = cart.filter(
+                            (item) => item._id === p._id,
+                          ).length;
+
+                          if (currentInCart < p.quantity) {
+                            const updatedCart = [...cart, p];
+                            setCart(updatedCart);
+                            localStorage.setItem(
+                              "cart",
+                              JSON.stringify(updatedCart),
+                            );
+                            toast.success("Item Added to cart");
+                          } else {
+                            toast.error(
+                              `Only ${p.quantity} units available in stock`,
+                            );
+                          }
+                        }}
+                      >
+                        {p?.quantity < 1
+                          ? "OUT OF STOCK"
+                          : cart.filter((item) => item._id === p._id).length >=
+                              p?.quantity
+                            ? "OUT OF STOCK"
+                            : "ADD TO CART"}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
           <div className="m-2 p-3">
             {products && products.length < total && (
@@ -226,13 +254,17 @@ const HomePage = () => {
                 {loading ? (
                   "Loading ..."
                 ) : (
-                  
-
-                  <span style={{ display: "flex", alignItems: "center", border: "1px solid black", padding: "5px", borderRadius: "5px" }}>
-                    
+                  <span
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      border: "1px solid black",
+                      padding: "5px",
+                      borderRadius: "5px",
+                    }}
+                  >
                     Load More 🔄
                   </span>
-                
                 )}
               </button>
             )}

@@ -142,7 +142,7 @@ describe("productController payment", () => {
         paymentMethodNonce: "nonce-123",
         options: { submitForSettlement: true },
       }),
-      expect.any(Function)
+      expect.any(Function),
     );
 
     // We can infer order saved via response JSON
