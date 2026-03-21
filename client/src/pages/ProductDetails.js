@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [addingToCart, setAddingToCart] = useState(false);
 
   const [cart, setCart] = useCart();
 
@@ -86,23 +87,31 @@ const ProductDetails = () => {
               <h6>Category : {product?.category?.name}</h6>
               <button
                 className="btn btn-dark ms-1"
-                // Change p to product here
                 disabled={
+                  addingToCart ||
                   product?.quantity < 1 ||
                   (cart?.filter((item) => item._id === product._id) || [])
                     .length >= product?.quantity
                 }
-                onClick={() => {
-                  // Change p to product here
+                onClick={async () => {
                   const currentInCart = cart?.filter(
                     (item) => item._id === product._id,
                   ).length;
 
                   if (currentInCart < product.quantity) {
-                    const updatedCart = [...cart, product];
-                    setCart(updatedCart);
-                    localStorage.setItem("cart", JSON.stringify(updatedCart));
-                    toast.success("Item Added to cart");
+                    setAddingToCart(true);
+
+                    try {
+                      // Replace this with an actual API call if you sync cart to backend
+                      await new Promise((resolve) => setTimeout(resolve, 800));
+
+                      const updatedCart = [...cart, product];
+                      setCart(updatedCart);
+                      localStorage.setItem("cart", JSON.stringify(updatedCart));
+                      toast.success("Item Added to cart");
+                    } finally {
+                      setAddingToCart(false);
+                    }
                   } else {
                     toast.error(
                       `Only ${product.quantity} units available in stock`,
@@ -110,13 +119,15 @@ const ProductDetails = () => {
                   }
                 }}
               >
-                {/* Change p to product here */}
-                {product?.quantity < 1
-                  ? "OUT OF STOCK"
-                  : (cart?.filter((item) => item._id === product._id) || [])
-                        .length >= product?.quantity
-                    ? "OUT OF STOCK"
-                    : "ADD TO CART"}
+                {addingToCart ? (
+                  <div>Loading...</div>
+                ) : product?.quantity < 1 ||
+                  (cart?.filter((item) => item._id === product._id) || [])
+                    .length >= product?.quantity ? (
+                  "OUT OF STOCK"
+                ) : (
+                  "ADD TO CART"
+                )}
               </button>
             </>
           )}
