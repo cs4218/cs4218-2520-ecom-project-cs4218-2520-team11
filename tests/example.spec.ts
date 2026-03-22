@@ -293,7 +293,7 @@ test.describe("UI | Changing Address ", () => {
       .fill("123");
     await page.getByRole("button", { name: "Make Payment" }).click();
     await expect(
-      page.locator("div:nth-child(56) > .table > tbody > tr > td:nth-child(5)"),
+      page.getByRole("cell", { name: "Success" }).first(),
     ).toBeVisible();
   });
 });
