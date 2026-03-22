@@ -1,20 +1,35 @@
 import React from "react";
 import { act, render, screen } from "@testing-library/react";
+import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import Spinner from "./Spinner";
 
-const mockNavigate = jest.fn();
-const mockLocation = { pathname: "/protected" };
+const RedirectTarget = ({ label }) => {
+  const location = useLocation();
+  return (
+    <div>
+      <h1>{label}</h1>
+      <p>from: {location.state || "none"}</p>
+    </div>
+  );
+};
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockNavigate,
-  useLocation: () => mockLocation,
-}));
+const renderSpinnerFlow = (spinnerProps = {}) =>
+  render(
+    <MemoryRouter initialEntries={["/protected"]}>
+      <Routes>
+        <Route path="/protected" element={<Spinner {...spinnerProps} />} />
+        <Route path="/login" element={<RedirectTarget label="Login Page" />} />
+        <Route
+          path="/dashboard"
+          element={<RedirectTarget label="Dashboard Page" />}
+        />
+      </Routes>
+    </MemoryRouter>
+  );
 
-describe("Spinner", () => {
+describe("Spinner integration", () => {
   beforeEach(() => {
     jest.useFakeTimers();
-    jest.clearAllMocks();
   });
 
   afterEach(() => {
@@ -22,50 +37,34 @@ describe("Spinner", () => {
     jest.useRealTimers();
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("renders the countdown message before redirecting", () => {
-    // Arrange
-    render(<Spinner />);
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("shows the countdown and then redirects to the default login route with state", () => {
+    renderSpinnerFlow();
 
-    // Act
-    const message = screen.getByRole("heading", {
-      name: /redirecting to you in 3 second/i,
-    });
-
-    // Assert
-    expect(message).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /redirecting to you in 3 second/i })
+    ).toBeInTheDocument();
     expect(screen.getByRole("status")).toBeInTheDocument();
-  });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("redirects to the default login path with the current location as state", () => {
-    // Arrange
-    render(<Spinner />);
-
-    // Act
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    // Assert
-    expect(mockNavigate).toHaveBeenCalledWith("/login", {
-      state: "/protected",
-    });
+    expect(screen.getByRole("heading", { name: /login page/i })).toBeInTheDocument();
+    expect(screen.getByText("from: /protected")).toBeInTheDocument();
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("redirects to the provided custom path", () => {
-    // Arrange
-    render(<Spinner path="dashboard" />);
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("redirects to a custom route when the path prop is provided", () => {
+    renderSpinnerFlow({ path: "dashboard" });
 
-    // Act
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    // Assert
-    expect(mockNavigate).toHaveBeenCalledWith("/dashboard", {
-      state: "/protected",
-    });
+    expect(
+      screen.getByRole("heading", { name: /dashboard page/i })
+    ).toBeInTheDocument();
+    expect(screen.getByText("from: /protected")).toBeInTheDocument();
   });
 });

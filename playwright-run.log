@@ -1,0 +1,176 @@
+
+Running 7 tests using 1 worker
+
+[1A[2K[1/7] [chromium] › tests\category-admin-navigation.spec.js:121:7 › Zyon scope E2E flows › navigates through categories, footer pages, and 404 recovery as an end user
+[1A[2K  1) [chromium] › tests\category-admin-navigation.spec.js:121:7 › Zyon scope E2E flows › navigates through categories, footer pages, and 404 recovery as an end user 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+    [2m  - navigating to "http://localhost:3000/", waiting until "load"[22m
+
+
+      122 |     page,
+      123 |   }) => {
+    > 124 |     await page.goto("/");
+          |                ^
+      125 |
+      126 |     await expect(page.getByRole("link", { name: /categories/i })).toBeVisible();
+      127 |     await expect(page.locator(".footer")).toBeVisible();
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:124:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--7f53c-404-recovery-as-an-end-user-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/7] [chromium] › tests\category-admin-navigation.spec.js:156:7 › Zyon scope E2E flows › browses a category and drills into product details from the category listing
+[1A[2K  2) [chromium] › tests\category-admin-navigation.spec.js:156:7 › Zyon scope E2E flows › browses a category and drills into product details from the category listing 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/categories
+    Call log:
+    [2m  - navigating to "http://localhost:3000/categories", waiting until "load"[22m
+
+
+      191 |     );
+      192 |
+    > 193 |     await page.goto("/categories");
+          |                ^
+      194 |     await page.getByRole("link", { name: MOCK_CATEGORIES[0].name }).click();
+      195 |
+      196 |     await expect(page).toHaveURL(/\/category\/electronics$/);
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:193:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--2c24b-s-from-the-category-listing-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[3/7] [chromium] › tests\category-admin-navigation.spec.js:222:7 › Zyon scope E2E flows › shows an empty result state when a category has no products
+[1A[2K  3) [chromium] › tests\category-admin-navigation.spec.js:222:7 › Zyon scope E2E flows › shows an empty result state when a category has no products 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Accessories' })[22m
+    [2m    - locator resolved to <a class="btn btn-primary" href="/category/accessories">Accessories</a>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+      234 |
+      235 |     await page.goto("/categories");
+    > 236 |     await page.getByRole("link", { name: MOCK_CATEGORIES[1].name }).click();
+          |                                                                     ^
+      237 |
+      238 |     await expect(page).toHaveURL(/\/category\/accessories$/);
+      239 |     await expect(
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:236:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--71e26--a-category-has-no-products-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\category-admin-navigation--71e26--a-category-has-no-products-chromium\error-context.md
+
+
+[1A[2K[4/7] [chromium] › tests\category-admin-navigation.spec.js:247:7 › Zyon scope E2E flows › lets an authenticated admin move from the dashboard to category management and create a category
+[1A[2K  4) [chromium] › tests\category-admin-navigation.spec.js:247:7 › Zyon scope E2E flows › lets an authenticated admin move from the dashboard to category management and create a category 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/dashboard/admin
+    Call log:
+    [2m  - navigating to "http://localhost:3000/dashboard/admin", waiting until "load"[22m
+
+
+      278 |     });
+      279 |
+    > 280 |     await page.goto("/dashboard/admin");
+          |                ^
+      281 |
+      282 |     await expect(page.getByText("Admin Name : Admin User")).toBeVisible();
+      283 |     await expect(page.getByText("Admin Email : admin@example.com")).toBeVisible();
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:280:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--02193-ement-and-create-a-category-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[5/7] [chromium] › tests\category-admin-navigation.spec.js:300:7 › Zyon scope E2E flows › shows an error when an admin submits a duplicate category name
+[1A[2K  5) [chromium] › tests\category-admin-navigation.spec.js:300:7 › Zyon scope E2E flows › shows an error when an admin submits a duplicate category name 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/dashboard/admin/create-category
+    Call log:
+    [2m  - navigating to "http://localhost:3000/dashboard/admin/create-category", waiting until "load"[22m
+
+
+      327 |     });
+      328 |
+    > 329 |     await page.goto("/dashboard/admin/create-category");
+          |                ^
+      330 |     await expect(
+      331 |       page.getByRole("heading", { name: "Manage Category" }),
+      332 |     ).toBeVisible();
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:329:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--e66a5-s-a-duplicate-category-name-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[6/7] [chromium] › tests\category-admin-navigation.spec.js:344:7 › Zyon scope E2E flows › prevents admin category creation when the input is empty
+[1A[2K  6) [chromium] › tests\category-admin-navigation.spec.js:344:7 › Zyon scope E2E flows › prevents admin category creation when the input is empty 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/dashboard/admin/create-category
+    Call log:
+    [2m  - navigating to "http://localhost:3000/dashboard/admin/create-category", waiting until "load"[22m
+
+
+      351 |     });
+      352 |
+    > 353 |     await page.goto("/dashboard/admin/create-category");
+          |                ^
+      354 |     await expect(
+      355 |       page.getByRole("heading", { name: "Manage Category" }),
+      356 |     ).toBeVisible();
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:353:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--6fa58-ion-when-the-input-is-empty-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[7/7] [chromium] › tests\category-admin-navigation.spec.js:364:7 › Zyon scope E2E flows › redirects unauthenticated admin access attempts to the login page
+[1A[2K  7) [chromium] › tests\category-admin-navigation.spec.js:364:7 › Zyon scope E2E flows › redirects unauthenticated admin access attempts to the login page 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/dashboard/admin
+    Call log:
+    [2m  - navigating to "http://localhost:3000/dashboard/admin", waiting until "load"[22m
+
+
+      365 |     page,
+      366 |   }) => {
+    > 367 |     await page.goto("/dashboard/admin");
+          |                ^
+      368 |
+      369 |     await expect(
+      370 |       page.getByText(/redirecting to you in/i),
+        at C:\Users\zyonw\cs4218-2520-ecom-project-cs4218-2520-team11\tests\category-admin-navigation.spec.js:367:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\category-admin-navigation--fa07d--attempts-to-the-login-page-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  7 failed
+    [chromium] › tests\category-admin-navigation.spec.js:121:7 › Zyon scope E2E flows › navigates through categories, footer pages, and 404 recovery as an end user 
+    [chromium] › tests\category-admin-navigation.spec.js:156:7 › Zyon scope E2E flows › browses a category and drills into product details from the category listing 
+    [chromium] › tests\category-admin-navigation.spec.js:222:7 › Zyon scope E2E flows › shows an empty result state when a category has no products 
+    [chromium] › tests\category-admin-navigation.spec.js:247:7 › Zyon scope E2E flows › lets an authenticated admin move from the dashboard to category management and create a category 
+    [chromium] › tests\category-admin-navigation.spec.js:300:7 › Zyon scope E2E flows › shows an error when an admin submits a duplicate category name 
+    [chromium] › tests\category-admin-navigation.spec.js:344:7 › Zyon scope E2E flows › prevents admin category creation when the input is empty 
+    [chromium] › tests\category-admin-navigation.spec.js:364:7 › Zyon scope E2E flows › redirects unauthenticated admin access attempts to the login page 
