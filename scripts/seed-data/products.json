@@ -9,7 +9,7 @@
   "category": {
     "$oid": "66db427fdb0119d9234b27ef"
   },
-  "quantity": 50,
+  "quantity": 30,
   "photo": {
     "data": {
       "$binary": {
@@ -39,7 +39,7 @@
   "category": {
     "$oid": "66db427fdb0119d9234b27ed"
   },
-  "quantity": 30,
+  "quantity": 1,
   "photo": {
     "data": {
       "$binary": {
