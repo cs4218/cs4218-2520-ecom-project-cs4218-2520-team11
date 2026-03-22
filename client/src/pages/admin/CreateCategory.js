@@ -120,7 +120,7 @@ const CreateCategory = () => {
                 </thead>
                 <tbody>
                   {categories?.map((c) => (
-                    <>
+                    <React.Fragment key={c._id}>
                       <tr>
                         <td key={c._id}>{c.name}</td>
                         <td>
@@ -144,7 +144,7 @@ const CreateCategory = () => {
                           </button>
                         </td>
                       </tr>
-                    </>
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>

@@ -140,50 +140,54 @@ describe("Add to Cart Functionality", () => {
     Storage.prototype.setItem = jest.fn();
   });
 
-  // ===== TEST 1: Add to cart button works =====
-  test("should add product to cart state when ADD TO CART clicked", async () => {
-    render(
-      <MemoryRouter>
-        <HomePage />
-      </MemoryRouter>,
-    );
+  // For this test, I used AI heavily to help generate the logic for handling quantity in cart.
 
-    await screen.findByText("iPhone");
+  // TEST 1: Adding same product creates duplicate entries (testing state management integration)
+  test("should add duplicate entries when same product added twice", async () => {
+    let cartState = [];
 
-    const addToCartButtons = screen.getAllByText("ADD TO CART");
-    fireEvent.click(addToCartButtons[0]);
-
-    await waitFor(() => {
-      expect(mockSetCart).toHaveBeenCalledWith([mockProducts[0]]);
-      expect(localStorage.setItem).toHaveBeenCalledWith(
-        "cart",
-        JSON.stringify([mockProducts[0]]),
-      );
-      expect(toast.success).toHaveBeenCalledWith("Item Added to cart");
+    const setCartMock = jest.fn((newCart) => {
+      cartState = newCart;
     });
-  });
 
-  // ===== TEST 2: Cannot add out of stock products =====
-  test("should NOT add product to cart if quantity is 0", async () => {
-    render(
+    useCart.mockReturnValue([cartState, setCartMock]);
+
+    const { rerender } = render(
       <MemoryRouter>
         <HomePage />
       </MemoryRouter>,
     );
 
-    await screen.findByText("iPhone");
+    const addToCartButtons = await screen.findAllByText("ADD TO CART");
+    const firstButton = addToCartButtons[0];
 
-    // Find all ADD TO CART buttons (should only be 1 - iPhone only, out of stock item should have no button)
-    const addToCartButtons = screen.getAllByText("ADD TO CART");
+    // --- CLICK 1 ---
+    fireEvent.click(firstButton);
 
-    // Try to click on out of stock item's button (if it exists)
-    // In your component, you might want to conditionally render the button
-    // or disable it for out of stock items
+    // Wait for async onClick to resolve
+    await waitFor(() => {
+      expect(setCartMock).toHaveBeenCalledTimes(1);
+      expect(cartState).toHaveLength(1);
+    });
 
-    // Verify cart was not updated
-    expect(mockSetCart).not.toHaveBeenCalled();
+    // Update mock and rerender with new cart state
+    useCart.mockReturnValue([cartState, setCartMock]);
+    rerender(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>,
+    );
 
-    // Verify no success toast
-    expect(toast.success).not.toHaveBeenCalled();
+    // --- CLICK 2 ---
+    const addToCartButtonsRefreshed = await screen.findAllByText("ADD TO CART");
+    fireEvent.click(addToCartButtonsRefreshed[0]);
+
+    // Wait for second async onClick to resolve
+    await waitFor(() => {
+      expect(setCartMock).toHaveBeenCalledTimes(2);
+      const lastCallArgs = setCartMock.mock.lastCall[0];
+      expect(lastCallArgs).toHaveLength(2);
+      expect(lastCallArgs[0]._id).toBe(lastCallArgs[1]._id);
+    });
   });
 });

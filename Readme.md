@@ -155,7 +155,7 @@ Huang Yi Chee, A0259617R
 Features: Protected Routes, Registration, Login, Profile
 
 Zyon Aaronel Wee Zhun Wei, A0277598B
-Features: Category, Payment, Admin Dashboard, General
+Features and tests: Category (`hooks/useCategory.js`, `pages/Categories.js`, `controllers/categoryController.js`, `models/categoryModel.js`), Payment (`controllers/productController.js` for `braintreeTokenController` and `brainTreePaymentController`), Admin Dashboard (`components/AdminMenu.js`, `pages/admin/AdminDashboard.js`), General (`components/Footer.js`, `components/Header.js`, `components/Layout.js`, `components/Spinner.js`, `pages/About.js`, `pages/Pagenotfound.js`, `config/db.js`)
 
 Antony Swami Alfred Ben, A0253016R
 Features: General, Order, Search

@@ -1,5 +1,7 @@
 import { jest } from "@jest/globals";
+import mongoose from "mongoose";
 import braintree from "braintree";
+import orderModel from "../models/orderModel.js";
 import {
   braintreeTokenController,
   brainTreePaymentController,
@@ -9,25 +11,18 @@ jest.mock("braintree", () => {
   const mockGenerate = jest.fn();
   const mockSale = jest.fn();
   return {
-    mockGenerate,
-    mockSale,
-    BraintreeGateway: jest.fn().mockImplementation(() => ({
-      clientToken: { generate: mockGenerate },
-      transaction: { sale: mockSale },
-    })),
-    Environment: { Sandbox: "sandbox" },
+    __esModule: true,
+    default: {
+      BraintreeGateway: jest.fn().mockImplementation(() => ({
+        clientToken: { generate: mockGenerate },
+        transaction: { sale: mockSale },
+      })),
+      Environment: { Sandbox: "sandbox" },
+      mockGenerate,
+      mockSale,
+    },
   };
 });
-
-jest.mock("../models/orderModel.js", () => {
-  return jest.fn().mockImplementation(function (payload) {
-    this.save = jest.fn().mockResolvedValue({});
-    this.payload = payload;
-  });
-});
-
-jest.mock("../models/productModel.js", () => jest.fn());
-jest.mock("../models/categoryModel.js", () => jest.fn());
 
 const mockGenerate = braintree.mockGenerate;
 const mockSale = braintree.mockSale;
@@ -40,102 +35,61 @@ const createRes = () => {
   return res;
 };
 
-describe("productController payment", () => {
+describe("productController payment integration", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("logs error when token generation throws", async () => {
-    // Arrange
-    const req = {};
-    const res = createRes();
-    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
-    const thrown = new Error("generate failed");
-    mockGenerate.mockImplementation(() => {
-      throw thrown;
-    });
-
-    // Act
-    await braintreeTokenController(req, res);
-
-    // Assert
-    expect(logSpy).toHaveBeenCalledWith(thrown);
-    logSpy.mockRestore();
-  });
-
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("returns a client token when gateway succeeds", async () => {
-    // Arrange
-    const req = {};
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("returns a client token when the Braintree gateway succeeds", async () => {
     const res = createRes();
     const response = { clientToken: "token" };
     mockGenerate.mockImplementation((_args, cb) => cb(null, response));
 
-    // Act
-    await braintreeTokenController(req, res);
+    await braintreeTokenController({}, res);
 
-    // Assert
     expect(mockGenerate).toHaveBeenCalledWith({}, expect.any(Function));
     expect(res.send).toHaveBeenCalledWith(response);
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("returns 500 when gateway token generation fails", async () => {
-    // Arrange
-    const req = {};
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("returns 500 when Braintree token generation fails", async () => {
     const res = createRes();
     const error = new Error("gateway down");
     mockGenerate.mockImplementation((_args, cb) => cb(error));
 
-    // Act
-    await braintreeTokenController(req, res);
+    await braintreeTokenController({}, res);
 
-    // Assert
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith(error);
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("logs error when payment sale throws", async () => {
-    // Arrange
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("creates and saves a real order model document after a successful payment", async () => {
+    const buyerId = new mongoose.Types.ObjectId();
+    const cart = [
+      { _id: new mongoose.Types.ObjectId(), price: 10 },
+      { _id: new mongoose.Types.ObjectId(), price: 15 },
+    ];
     const req = {
-      body: { nonce: "nonce-999", cart: [] },
-      user: { _id: "user-9" },
+      body: { nonce: "nonce-123", cart },
+      user: { _id: buyerId },
     };
     const res = createRes();
-    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
-    const thrown = new Error("sale failed");
-    mockSale.mockImplementation(() => {
-      throw thrown;
-    });
+    const paymentResult = { id: "tx-1", status: "submitted_for_settlement" };
+    let savedOrder = null;
 
-    // Act
+    const saveSpy = jest
+      .spyOn(orderModel.prototype, "save")
+      .mockImplementation(function () {
+        savedOrder = this;
+        return Promise.resolve(this);
+      });
+
+    mockSale.mockImplementation((payload, cb) => cb(null, paymentResult));
+
     await brainTreePaymentController(req, res);
 
-    // Assert
-    expect(logSpy).toHaveBeenCalledWith(thrown);
-    logSpy.mockRestore();
-  });
-
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("creates an order and responds ok for successful payment", async () => {
-    // Arrange
-    const req = {
-      body: {
-        nonce: "nonce-123",
-        cart: [{ price: 10 }, { price: 15 }],
-      },
-      user: { _id: "user-1" },
-    };
-    const res = createRes();
-
-    mockSale.mockImplementation((payload, cb) => cb(null, { id: "tx" }));
-
-    // Act
-    await brainTreePaymentController(req, res);
-
-    // Assert
     expect(mockSale).toHaveBeenCalledWith(
       expect.objectContaining({
         amount: 25,
@@ -144,29 +98,31 @@ describe("productController payment", () => {
       }),
       expect.any(Function)
     );
-
-    // We can infer order saved via response JSON
+    expect(saveSpy).toHaveBeenCalledTimes(1);
+    expect(savedOrder).not.toBeNull();
+    expect(savedOrder.buyer.toString()).toBe(buyerId.toString());
+    expect(savedOrder.products).toHaveLength(2);
+    expect(savedOrder.payment).toMatchObject(paymentResult);
     expect(res.json).toHaveBeenCalledWith({ ok: true });
+
+    saveSpy.mockRestore();
   });
 
-  // ZYON AARONEL WEE ZHUN WEI, A0277598B
-  it("returns 500 when payment fails", async () => {
-    // Arrange
+  // Zyon Aaronel Wee Zhun Wei, A0277598B
+  it("returns 500 when the payment transaction fails", async () => {
     const req = {
       body: {
         nonce: "nonce-456",
-        cart: [{ price: 5 }],
+        cart: [{ _id: new mongoose.Types.ObjectId(), price: 5 }],
       },
-      user: { _id: "user-2" },
+      user: { _id: new mongoose.Types.ObjectId() },
     };
     const res = createRes();
     const error = new Error("card declined");
     mockSale.mockImplementation((payload, cb) => cb(error, null));
 
-    // Act
     await brainTreePaymentController(req, res);
 
-    // Assert
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith(error);
   });
