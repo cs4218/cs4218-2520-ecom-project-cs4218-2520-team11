@@ -149,7 +149,8 @@ To begin unit testing with Jest in your project, follow these steps:
 ## Contributions
 
 Julius Bryan Reynon Gambe, A0252251R
-Features: Admin Actions, Admin View Products, Admin View Users + Admin View Orders
+Features: Admin Actions (`client/src/pages/admin/CreateCategory.test.js`, `client/src/components/Form/CategoryForm.test.js`, `controllers/categoryController.test.js`, `controllers/categoryController.integration.test.js`, `controllers/authController.test.js`, `tests/create-product.spec.js`, `tests/create-category.spec.js`), Admin View Products (`client/src/pages/admin/Products.test.js`, `client/src/pages/admin/CreateProduct.test.js`, `client/src/pages/admin/UpdateProduct.test.js`, `client/src/components/Form/SearchInput.test.js`, `controllers/productController.test.js`, `controllers/productController.integration.test.js`), Admin View Users (`client/src/pages/admin/Users.test.js`), Admin View Orders (`client/src/pages/admin/AdminOrders.test.js`, `controllers/order.integration.test.js`, `tests/orders.spec.js`)
+
 
 Huang Yi Chee, A0259617R
 Features and tests: Protected Routes (`context/auth.js`, `helpers/authHelper.js`, `middlewares/authMiddleware.js`), Registration & Login (`pages/Auth/Register.js`, `pages/Auth/Login.js`, `controllers/authController.js`), Profile (`pages/user/Profile.js`)

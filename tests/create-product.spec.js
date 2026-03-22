@@ -88,6 +88,7 @@ test.describe("Admin – Create Product with Category", () => {
   });
 
   // ── Full happy-path e2e journey ─────────────────────────────────────────
+  // Julius Bryan Reynon Gambe A0252251R
   test("admin creates a category, creates a product assigned to that category, and verifies the product details are displayed correctly", async ({
     page,
   }) => {
@@ -204,6 +205,7 @@ test.describe("Admin – Create Product with Category", () => {
   });
 
   // ── Missing required fields prevent creation ────────────────────────────
+  // Julius Bryan Reynon Gambe A0252251R
   test("submitting the product form without filling required fields does not create a product", async ({
     page,
   }) => {

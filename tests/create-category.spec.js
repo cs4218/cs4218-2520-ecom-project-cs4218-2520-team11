@@ -48,6 +48,7 @@ test.describe("Admin – Create Category", () => {
   });
 
   // ── 1. Happy path ────────────────────────────────────────────────────────
+  // Julius Bryan Reynon Gambe A0252251R
   test("creates a new category and verifies it is displayed in the category table", async ({
     page,
   }) => {
@@ -76,6 +77,7 @@ test.describe("Admin – Create Category", () => {
   });
 
   // ── 2. Duplicate category is rejected ───────────────────────────────────
+  // Julius Bryan Reynon Gambe A0252251R
   test("submitting a duplicate category name shows 'Category Already Exists' and does not add a second row", async ({
     page,
   }) => {
@@ -102,6 +104,7 @@ test.describe("Admin – Create Category", () => {
   });
 
   // ── 3. Empty name is rejected by the server ─────────────────────────────
+  // Julius Bryan Reynon Gambe A0252251R
   test("submitting an empty category name does not create a category", async ({
     page,
   }) => {
