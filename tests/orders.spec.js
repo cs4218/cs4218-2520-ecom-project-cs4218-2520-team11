@@ -27,6 +27,10 @@
  */
 
 import { test, expect } from "@playwright/test";
+import {
+  setupAdminUser,
+  teardownAdminUser,
+} from "./helpers/admin-setup.js";
 
 // ─── Credentials ──────────────────────────────────────────────────────────────
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
@@ -118,6 +122,15 @@ async function stubProductPhotos(page) {
     route.fulfill({ status: 200, contentType: "image/png", body: "" })
   );
 }
+
+// ─── Admin user lifecycle ─────────────────────────────────────────────────────
+test.beforeAll(async () => {
+  await setupAdminUser();
+});
+
+test.afterAll(async () => {
+  await teardownAdminUser();
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // User Orders

@@ -10,6 +10,10 @@
  */
 
 import { test, expect } from "@playwright/test";
+import {
+  setupAdminUser,
+  teardownAdminUser,
+} from "./helpers/admin-setup.js";
 
 // ─── Admin credentials ────────────────────────────────────────────────────────
 // Override via environment variables when running against a real DB.
@@ -31,6 +35,14 @@ async function loginAsAdmin(page) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe("Admin – Create Category", () => {
+  test.beforeAll(async () => {
+    await setupAdminUser();
+  });
+
+  test.afterAll(async () => {
+    await teardownAdminUser();
+  });
+
   test.beforeEach(async ({ page }) => {
     await loginAsAdmin(page);
   });

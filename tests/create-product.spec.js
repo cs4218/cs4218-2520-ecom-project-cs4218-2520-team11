@@ -18,6 +18,10 @@
  */
 
 import { test, expect } from "@playwright/test";
+import {
+  setupAdminUser,
+  teardownAdminUser,
+} from "./helpers/admin-setup.js";
 
 // ─── Admin credentials ────────────────────────────────────────────────────────
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
@@ -75,6 +79,14 @@ async function selectAntOption(page, placeholderText, optionText) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe("Admin – Create Product with Category", () => {
+  test.beforeAll(async () => {
+    await setupAdminUser();
+  });
+
+  test.afterAll(async () => {
+    await teardownAdminUser();
+  });
+
   // ── Full happy-path e2e journey ─────────────────────────────────────────
   test("admin creates a category, creates a product assigned to that category, and verifies the product details are displayed correctly", async ({
     page,
