@@ -7,4 +7,5 @@ node_modules
 /coverage/
 coverage/
 playwright-report
+.nvmrc
 /playwright/.auth/
