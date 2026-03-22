@@ -361,7 +361,6 @@ describe("HomePage Integration Tests", () => {
 
   // TEST 3: Add to cart works
   it("should add item to cart when clicking ADD TO CART", async () => {
-    // Reset cart before test
     mockCartItems = [];
 
     render(
@@ -370,15 +369,11 @@ describe("HomePage Integration Tests", () => {
       </MemoryRouter>,
     );
 
-    // Wait for products to load
     await screen.findByText("iPhone 13");
 
-    // Find all ADD TO CART buttons
     const addToCartButtons = await screen.findAllByText("ADD TO CART");
 
-    // Find the parent card that contains both 'iPhone 13' text and an ADD TO CART button
     for (const button of addToCartButtons) {
-      // Find the closest card element
       const card = button.closest(".card");
       if (card && card.textContent.includes("iPhone 13")) {
         fireEvent.click(button);
@@ -386,25 +381,21 @@ describe("HomePage Integration Tests", () => {
       }
     }
 
-    // Verify setCart was called
-    expect(mockSetCart).toHaveBeenCalled();
+    // Wrap all post-click assertions in waitFor
+    await waitFor(() => {
+      expect(mockSetCart).toHaveBeenCalled();
 
-    // Get the argument passed to setCart
-    const setCartCall = mockSetCart.mock.calls[0][0];
+      const setCartCall = mockSetCart.mock.calls[0][0];
+      expect(Array.isArray(setCartCall)).toBe(true);
+      expect(setCartCall.length).toBe(1);
+      expect(setCartCall[0]._id).toBe("1");
+      expect(setCartCall[0].name).toBe("iPhone 13");
 
-    // Verify it's an array with one item
-    expect(Array.isArray(setCartCall)).toBe(true);
-    expect(setCartCall.length).toBe(1);
-
-    // Verify the item is iPhone 13 (_id: '1')
-    expect(setCartCall[0]._id).toBe("1");
-    expect(setCartCall[0].name).toBe("iPhone 13");
-
-    // Verify localStorage was called
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      "cart",
-      JSON.stringify(setCartCall),
-    );
+      expect(localStorage.setItem).toHaveBeenCalledWith(
+        "cart",
+        JSON.stringify(setCartCall),
+      );
+    });
   });
 
   // TEST 4: Load more products works
