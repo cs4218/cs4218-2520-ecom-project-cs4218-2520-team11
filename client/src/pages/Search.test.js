@@ -177,7 +177,7 @@ describe("Search Results Page", () => {
             </MemoryRouter>
         );
 
-        expect(screen.getByText("$ 999")).toBeInTheDocument();
+        expect(screen.getByText("$999.00")).toBeInTheDocument();
     });
 
     // Antony Swami Alfred Ben, A0253016R
