@@ -123,7 +123,7 @@ describe("Product Detail Shopping Cart Integration", () => {
     );
   });
 
-  it(" adds product to localStorage after clicking Add to Cart", async () => {
+  it("adds product to localStorage after clicking Add to Cart", async () => {
     setupAxiosMocks();
     renderProductDetail();
 
@@ -131,9 +131,11 @@ describe("Product Detail Shopping Cart Integration", () => {
       await screen.findByRole("button", { name: /add to cart/i }),
     );
 
-    const stored = JSON.parse(localStorage.getItem("cart") || "[]");
-    expect(stored).toHaveLength(1);
-    expect(stored[0]._id).toBe(mockProduct._id);
+    await waitFor(() => {
+      const stored = JSON.parse(localStorage.getItem("cart") || "[]");
+      expect(stored).toHaveLength(1);
+      expect(stored[0]._id).toBe(mockProduct._id);
+    });
   });
 
   it("shows success toast after adding an in-stock item", async () => {
@@ -141,10 +143,13 @@ describe("Product Detail Shopping Cart Integration", () => {
     renderProductDetail();
 
     fireEvent.click(
-      await screen.findByRole("button", { name: /add to cart/i }),
+      await screen.findByRole("button", { name: /ADD TO CART/i }),
     );
 
-    expect(toast.success).toHaveBeenCalledWith("Item Added to cart");
+    // Wait for the async onClick to complete before asserting
+    await waitFor(() => {
+      expect(toast.success).toHaveBeenCalledWith("Item Added to cart");
+    });
   });
 
   it(" cart counter badge in nav does NOT update after add", async () => {
