@@ -16,8 +16,8 @@ const path = require("path");
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin2@example.com";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "adminpass2";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "adminpass";
 
 const userSchema = new mongoose.Schema(
   {
