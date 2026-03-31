@@ -148,31 +148,81 @@ To begin unit testing with Jest in your project, follow these steps:
 
 ## Contributions
 
-Julius Bryan Reynon Gambe, A0252251R
-Features: Admin Actions (`client/src/pages/admin/CreateCategory.test.js`, `client/src/components/Form/CategoryForm.test.js`, `controllers/categoryController.test.js`, `controllers/categoryController.integration.test.js`, `controllers/authController.test.js`, `tests/create-product.spec.js`, `tests/create-category.spec.js`), Admin View Products (`client/src/pages/admin/Products.test.js`, `client/src/pages/admin/CreateProduct.test.js`, `client/src/pages/admin/UpdateProduct.test.js`, `client/src/components/Form/SearchInput.test.js`, `controllers/productController.test.js`, `controllers/productController.integration.test.js`), Admin View Users (`client/src/pages/admin/Users.test.js`), Admin View Orders (`client/src/pages/admin/AdminOrders.test.js`, `controllers/order.integration.test.js`, `tests/orders.spec.js`, `Orders.test.js`)
+> Note: Some test files contain tests from multiple contributors, identified by comment markers (e.g. `// A0252251R`).
 
-Huang Yi Chee, A0259617R
-Features and tests: Protected Routes (`context/auth.js`, `helpers/authHelper.js`, `middlewares/authMiddleware.js`), Registration & Login (`pages/Auth/Register.js`, `pages/Auth/Login.js`, `controllers/authController.js`), Profile (`pages/user/Profile.js`)
+---
 
-Zyon Aaronel Wee Zhun Wei, A0277598B
-Features and tests: Category (`hooks/useCategory.js`, `pages/Categories.js`, `controllers/categoryController.js`, `models/categoryModel.js`), Payment (`controllers/productController.js` for `braintreeTokenController` and `brainTreePaymentController`), Admin Dashboard (`components/AdminMenu.js`, `pages/admin/AdminDashboard.js`), General (`components/Footer.js`, `components/Header.js`, `components/Layout.js`, `components/Spinner.js`, `pages/About.js`, `pages/Pagenotfound.js`, `config/db.js`)
+### Julius Bryan Reynon Gambe, A0252251R
 
-Antony Swami Alfred Ben, A0253016R
-Features and tests: General, Order, Search
-Unit Tests: `client/src/components/Form/SearchInput.test.js`, `client/src/components/Routes/Private.test.js`, `client/src/components/UserMenu.test.js`, `client/src/pages/user/Dashboard.test.js`, `client/src/pages/Search.test.js`, `models/userModel.test.js`, `controllers/authController.test.js` (updateProfileController tests)
-Integration Tests: `controllers/profileUpdate.integration.test.js`, `controllers/searchProduct.integration.test.js`
-UI Tests (Playwright): `tests/auth.spec.js`, `tests/cart.spec.js`, `tests/search.spec.js`, `tests/product-details.spec.js`, `tests/user-profile-orders.spec.js`
+Features: Admin Actions, Admin View Products, Admin View Users, Admin View Orders
 
-Gabriel Seethor, A0257008H
-Features and tests: Product, Contact, Home, Cart, Policy
-(`productController.test.js`, `CartPage.test.js`, `CategoryProduct.test.js`, `FilterHomePage.test.js`, `HomePageCart.test.js`, `HomePageCart.test.js`)
-(`CartCheckoutIntegration.test.js`
-`HomePageCartIntegration.test.js`
-`HomePageIntegration.test.js`  
-`HomePageNavigationIntegration.test.js`
-`MergeGuestCartIntegration.test.js `
-`ProductDetailsCartIntegration.test.js`
-`ProductDetailsIntegration.test.js`
-`cart-productdetails.spec.ts`
-`Note: Might need to run db.seed if test cases dont work`
-)
+**Unit Tests:**
+`client/src/pages/admin/CreateCategory.test.js`, `client/src/components/Form/CategoryForm.test.js`, `controllers/categoryController.test.js`, `controllers/authController.test.js`, `client/src/pages/admin/Products.test.js`, `client/src/pages/admin/CreateProduct.test.js`, `client/src/pages/admin/UpdateProduct.test.js`, `client/src/components/Form/SearchInput.test.js`, `controllers/productController.test.js`, `client/src/pages/admin/Users.test.js`, `client/src/pages/admin/AdminOrders.test.js`, `Orders.test.js`
+
+**Integration Tests:**
+`controllers/categoryController.integration.test.js`, `controllers/productController.integration.test.js`, `controllers/order.integration.test.js`
+
+**UI Tests (Playwright):**
+`tests/create-product.spec.js`, `tests/create-category.spec.js`, `tests/orders.spec.js`
+
+---
+
+### Huang Yi Chee, A0259617R
+
+Features: Protected Routes, Registration & Login, Profile
+
+**Unit Tests:**
+`controllers/authController.test.js` (Yi Chee's tests), `middlewares/authMiddleware.test.js`, `helpers/authHelper.test.js`, `client/src/pages/user/Profile.test.js`, `client/src/pages/Auth/Register.test.js`, `client/src/pages/Auth/ForgotPassword.test.js`, `client/src/context/auth.test.js`
+
+**Integration Tests:**
+`controllers/authController.integration.test.js` (Yi Chee's tests), `middlewares/authMiddleware.integration.test.js`, `client/src/pages/user/profile.integration.test.js`, `client/src/pages/Auth/authFlow.integration.test.js`
+
+**UI Tests (Playwright):**
+`tests/register-user.spec.js`, `tests/forgot-password.spec.js`, `tests/update-profile.spec.js`
+
+---
+
+### Zyon Aaronel Wee Zhun Wei, A0277598B
+
+Features: Category, Payment, Admin Dashboard, General
+
+**Unit Tests:**
+`controllers/categoryController.test.js` , `controllers/productController.payment.test.js`, `models/categoryModel.test.js`, `models/userModel.test.js` , `config/db.test.js`, `client/src/hooks/useCategory.test.js`, `client/src/pages/Categories.test.js`, `client/src/pages/About.test.js`, `client/src/pages/Pagenotfound.test.js`, `client/src/pages/user/Dashboard.test.js` , `client/src/pages/admin/AdminDashboard.test.js`, `client/src/components/AdminMenu.test.js`, `client/src/components/Header.test.js`, `client/src/components/Footer.test.js`, `client/src/components/Layout.test.js`, `client/src/components/Spinner.test.js`, `client/src/components/UserMenu.test.js` , `client/src/components/Routes/Private.test.js` 
+
+**Integration Tests:**
+`client/src/pages/admin/CreateCategoryIntegration.test.js`
+
+**UI Tests (Playwright):**
+`tests/category-admin-navigation.spec.js`
+
+---
+
+### Antony Swami Alfred Ben, A0253016R
+
+Features: General, Order, Search
+
+**Unit Tests:**
+`client/src/components/Form/SearchInput.test.js`, `client/src/components/Routes/Private.test.js`, `client/src/components/UserMenu.test.js`, `client/src/pages/user/Dashboard.test.js`, `client/src/pages/Search.test.js`, `models/userModel.test.js`, `controllers/authController.test.js` (updateProfileController tests)
+
+**Integration Tests:**
+`controllers/profileUpdate.integration.test.js`, `controllers/searchProduct.integration.test.js`
+
+**UI Tests (Playwright):**
+`tests/auth.spec.js`, `tests/cart.spec.js`, `tests/search.spec.js`, `tests/product-details.spec.js`, `tests/user-profile-orders.spec.js`
+
+---
+
+### Gabriel Seethor, A0257008H
+
+Features: Product, Contact, Home, Cart, Policy
+
+**Unit Tests:**
+`client/src/pages/CartPage.test.js`, `client/src/pages/CategoryProduct.test.js`, `client/src/pages/FilterHomePage.test.js`, `client/src/pages/HomePageCart.test.js`, `controllers/productController.test.js`
+
+**Integration Tests:**
+`client/src/pages/CartCheckoutIntegration.test.js`, `client/src/pages/HomePageCartIntegration.test.js`, `client/src/pages/HomePageIntegration.test.js`, `client/src/pages/HomePageNavigationIntegration.test.js`, `client/src/pages/MergeGuestCartIntegration.test.js`, `client/src/pages/ProductDetailsCartIntegration.test.js`, `client/src/pages/ProductDetailsIntegration.test.js`
+
+**UI Tests (Playwright):**
+`tests/cart-productdetails.spec.ts`
+
+> Note: Might need to run `npm run db:seed` if test cases don't work.
