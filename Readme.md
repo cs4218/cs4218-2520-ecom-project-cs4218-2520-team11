@@ -172,7 +172,7 @@ Features: Admin Actions, Admin View Products, Admin View Users, Admin View Order
 Features: Protected Routes, Registration & Login, Profile
 
 **Unit Tests:**
-`controllers/authController.test.js`, `middlewares/authMiddleware.test.js`, `helpers/authHelper.test.js`, `client/src/pages/user/Profile.test.js`, `client/src/pages/Auth/Register.test.js`, `client/src/pages/Auth/ForgotPassword.test.js`, `client/src/context/auth.test.js`
+`controllers/authController.test.js`, `middlewares/authMiddleware.test.js`, `helpers/authHelper.test.js`, `client/src/pages/user/Profile.test.js`, `client/src/pages/Auth/Register.test.js`, `client/src/pages/Auth/ForgotPassword.test.js`, `client/src/context/auth.test.js`, `client/src/pages/Auth/login.test.js`
 
 **Integration Tests:**
 `controllers/authController.integration.test.js`, `middlewares/authMiddleware.integration.test.js`, `client/src/pages/user/profile.integration.test.js`, `client/src/pages/Auth/authFlow.integration.test.js`
