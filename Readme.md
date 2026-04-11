@@ -180,6 +180,9 @@ Features: Protected Routes, Registration & Login, Profile
 **UI Tests (Playwright):**
 `tests/register-user.spec.js`, `tests/forgot-password.spec.js`, `tests/update-profile.spec.js`
 
+**Performance Tests (k6 Load Tests):**
+`load-tests/scenarios/01-product-browsing-search-filter.js`, `load-tests/scenarios/02-product-details-media.js`, `load-tests/scenarios/03-authentication-flow.js`, `load-tests/scenarios/04-user-dashboard-profile.js`, `load-tests/scenarios/05-cart-checkout-payments.js`, `load-tests/scenarios/06-category-specific-browsing.js`, `load-tests/scenarios/07-admin-catalog-management.js`, `load-tests/scenarios/08-admin-user-order-operations.js`, `load-tests/mixed-load.js`, `load-tests/scenarios/_shared.js`
+
 ---
 
 ### Zyon Aaronel Wee Zhun Wei, A0277598B
