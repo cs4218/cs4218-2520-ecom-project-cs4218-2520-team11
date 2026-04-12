@@ -198,6 +198,9 @@ Features: Category, Payment, Admin Dashboard, General
 **UI Tests (Playwright):**
 `tests/category-admin-navigation.spec.js`
 
+**Capacity Tests (k6):**
+`k6/capacity-public-catalog.js`, `k6/capacity-authenticated-admin.js`, `k6/capacity-search-filter.js`, `k6/capacity-product-photo.js`
+
 ---
 
 ### Antony Swami Alfred Ben, A0253016R

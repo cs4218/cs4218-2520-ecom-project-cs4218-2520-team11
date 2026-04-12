@@ -1,0 +1,247 @@
+{
+    "metrics": {
+        "vus": {
+            "value": 56,
+            "min": 0,
+            "max": 120
+        },
+        "http_req_sending": {
+            "p(90)": 0.026574000000000004,
+            "p(95)": 0.03136509999999999,
+            "avg": 29.993636832481073,
+            "min": 0.001757,
+            "med": 0.009085,
+            "max": 11397.449308
+        },
+        "data_received": {
+            "count": 17272772,
+            "rate": 41001.73164980201
+        },
+        "http_req_blocked": {
+            "p(95)": 0.007700299999999996,
+            "avg": 1.4519276189420316,
+            "min": 0.00048,
+            "med": 0.002761,
+            "max": 872.117629,
+            "p(90)": 0.005878
+        },
+        "catalog_capacity_iteration_duration": {
+            "min": 31,
+            "med": 11706,
+            "max": 30699,
+            "p(90)": 19143,
+            "p(95)": 22493.599999999995,
+            "avg": 10846.052674450177,
+            "thresholds": {
+                "p(95)<1500": true
+            }
+        },
+        "dropped_iterations": {
+            "count": 5766,
+            "rate": 13.687205776395263
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 22099,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_duration": {
+            "avg": 1806.763595343444,
+            "min": 0.042116,
+            "med": 1601.538541,
+            "max": 17271.799156,
+            "p(90)": 3585.8180388000005,
+            "p(95)": 4421.6665385,
+            "thresholds": {
+                "p(95)<800": true
+            }
+        },
+        "catalog_capacity_errors": {
+            "passes": 0,
+            "fails": 22098,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_reqs": {
+            "count": 22099,
+            "rate": 52.45812702958011
+        },
+        "vus_max": {
+            "value": 120,
+            "min": 25,
+            "max": 120
+        },
+        "http_req_connecting": {
+            "avg": 0.7302678994524641,
+            "min": 0,
+            "med": 0,
+            "max": 872.063393,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "catalog_capacity_search_duration": {
+            "med": 1458.843285,
+            "max": 17271.799156,
+            "p(90)": 3059.5906968000013,
+            "p(95)": 3863.839457499996,
+            "avg": 1626.3668606714602,
+            "min": 0.042116,
+            "thresholds": {
+                "p(95)<900": true
+            }
+        },
+        "catalog_capacity_product_list_duration": {
+            "min": 0.354581,
+            "med": 1497.083087,
+            "max": 16235.883646,
+            "p(90)": 3028.2345692000004,
+            "p(95)": 3919.701474299998,
+            "avg": 1637.6538917778987,
+            "thresholds": {
+                "p(95)<700": true
+            }
+        },
+        "http_req_receiving": {
+            "p(95)": 1.4778071999999995,
+            "avg": 0.8615854057649693,
+            "min": -197.024062,
+            "med": 0.071752,
+            "max": 760.184316,
+            "p(90)": 0.23895100000000002
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 1806.763595343444,
+            "min": 0.042116,
+            "med": 1601.538541,
+            "max": 17271.799156,
+            "p(90)": 3585.8180388000005,
+            "p(95)": 4421.6665385
+        },
+        "http_req_tls_handshaking": {
+            "p(95)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0
+        },
+        "http_req_waiting": {
+            "min": 0,
+            "med": 1600.596291,
+            "max": 13092.065461,
+            "p(90)": 3561.6135912,
+            "p(95)": 4352.474611399999,
+            "avg": 1775.9083731051994
+        },
+        "data_sent": {
+            "count": 2650043,
+            "rate": 6290.614612781102
+        },
+        "checks": {
+            "passes": 22098,
+            "fails": 0,
+            "value": 1
+        },
+        "iteration_duration": {
+            "avg": 10935.102650846304,
+            "min": 30.499454,
+            "med": 11838.886862,
+            "max": 30888.86665,
+            "p(90)": 19187.8369418,
+            "p(95)": 22693.3459236
+        },
+        "iterations": {
+            "count": 3683,
+            "rate": 8.74262554187717
+        }
+    },
+    "setup_data": {
+        "products": [
+            {
+                "categoryId": "66db427fdb0119d9234b27ee",
+                "id": "67a21772a6d9e00ef2ac022a",
+                "slug": "nus-tshirt"
+            },
+            {
+                "categoryId": "66db427fdb0119d9234b27ef",
+                "id": "66db427fdb0119d9234b27f9",
+                "slug": "novel"
+            },
+            {
+                "categoryId": "66db427fdb0119d9234b27ef",
+                "id": "67a2171ea6d9e00ef2ac0229",
+                "slug": "the-law-of-contract-in-singapore"
+            },
+            {
+                "categoryId": "66db427fdb0119d9234b27ed",
+                "id": "66db427fdb0119d9234b27f5",
+                "slug": "smartphone"
+            },
+            {
+                "categoryId": "66db427fdb0119d9234b27ed",
+                "id": "66db427fdb0119d9234b27f3",
+                "slug": "laptop"
+            },
+            {
+                "categoryId": "66db427fdb0119d9234b27ef",
+                "id": "66db427fdb0119d9234b27f1",
+                "slug": "textbook"
+            }
+        ]
+    },
+    "root_group": {
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "catalog product-list 200": {
+                    "name": "catalog product-list 200",
+                    "path": "::catalog product-list 200",
+                    "id": "91373090739bd845b224e8df83ffd566",
+                    "passes": 3683,
+                    "fails": 0
+                },
+                "catalog product-count 200": {
+                    "path": "::catalog product-count 200",
+                    "id": "7f436b8eddb5296cb01c7bb2694dc5ab",
+                    "passes": 3683,
+                    "fails": 0,
+                    "name": "catalog product-count 200"
+                },
+                "catalog categories 200": {
+                    "name": "catalog categories 200",
+                    "path": "::catalog categories 200",
+                    "id": "d911588a12cad3afc7e7d6c72a06d4fb",
+                    "passes": 3683,
+                    "fails": 0
+                },
+                "catalog search 200": {
+                    "path": "::catalog search 200",
+                    "id": "c07fe3f5e02183246e2000532f0af9a5",
+                    "passes": 3683,
+                    "fails": 0,
+                    "name": "catalog search 200"
+                },
+                "catalog product detail 200": {
+                    "name": "catalog product detail 200",
+                    "path": "::catalog product detail 200",
+                    "id": "30d79fe81b44afaa41e9345c4b53d39b",
+                    "passes": 3683,
+                    "fails": 0
+                },
+                "catalog related products 200": {
+                    "path": "::catalog related products 200",
+                    "id": "61ad411eb18a02aed37a3192b1e8d03e",
+                    "passes": 3683,
+                    "fails": 0,
+                    "name": "catalog related products 200"
+                }
+            },
+        "name": ""
+    }
+}
