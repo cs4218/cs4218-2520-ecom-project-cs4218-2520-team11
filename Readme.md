@@ -219,6 +219,9 @@ Features: General, Order, Search
 **UI Tests (Playwright):**
 `tests/auth.spec.js`, `tests/cart.spec.js`, `tests/search.spec.js`, `tests/product-details.spec.js`, `tests/user-profile-orders.spec.js`
 
+**Security Tests (Shell):**
+`security-tests/run_all_tests.sh`, `security-tests/lib/common.sh`, `security-tests/tests/01_injection.sh`, `security-tests/tests/02_access_control.sh`, `security-tests/tests/03_authentication.sh`, `security-tests/tests/04_misconfiguration.sh`, `security-tests/tests/05_info_disclosure.sh`, `security-tests/tests/06_dependencies.sh`
+
 ---
 
 ### Gabriel Seethor, A0257008H
