@@ -8,3 +8,5 @@ node_modules
 coverage/
 playwright-report
 .nvmrc
+*.log
+debug-*.png
