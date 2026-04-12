@@ -165,6 +165,9 @@ Features: Admin Actions, Admin View Products, Admin View Users, Admin View Order
 **UI Tests (Playwright):**
 `tests/create-product.spec.js`, `tests/create-category.spec.js`, `tests/orders.spec.js`
 
+**Stress Tests (k6):**
+`k6/public-products.js`, `k6/auth-flow.js`, `k6/authenticated-user.js`, `k6/admin-flow.js`
+
 ---
 
 ### Huang Yi Chee, A0259617R
