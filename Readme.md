@@ -187,7 +187,7 @@ Features: Protected Routes, Registration & Login, Profile
 Features: Category, Payment, Admin Dashboard, General
 
 **Unit Tests:**
-`controllers/categoryController.test.js` , `controllers/productController.payment.test.js`, `models/categoryModel.test.js`, `models/userModel.test.js` , `config/db.test.js`, `client/src/hooks/useCategory.test.js`, `client/src/pages/Categories.test.js`, `client/src/pages/About.test.js`, `client/src/pages/Pagenotfound.test.js`, `client/src/pages/user/Dashboard.test.js` , `client/src/pages/admin/AdminDashboard.test.js`, `client/src/components/AdminMenu.test.js`, `client/src/components/Header.test.js`, `client/src/components/Footer.test.js`, `client/src/components/Layout.test.js`, `client/src/components/Spinner.test.js`, `client/src/components/UserMenu.test.js` , `client/src/components/Routes/Private.test.js` 
+`controllers/categoryController.test.js` , `controllers/productController.payment.test.js`, `models/categoryModel.test.js`, `models/userModel.test.js` , `config/db.test.js`, `client/src/hooks/useCategory.test.js`, `client/src/pages/Categories.test.js`, `client/src/pages/About.test.js`, `client/src/pages/Pagenotfound.test.js`, `client/src/pages/user/Dashboard.test.js` , `client/src/pages/admin/AdminDashboard.test.js`, `client/src/components/AdminMenu.test.js`, `client/src/components/Header.test.js`, `client/src/components/Footer.test.js`, `client/src/components/Layout.test.js`, `client/src/components/Spinner.test.js`, `client/src/components/UserMenu.test.js` , `client/src/components/Routes/Private.test.js`
 
 **Integration Tests:**
 `client/src/pages/admin/CreateCategoryIntegration.test.js`
@@ -226,3 +226,7 @@ Features: Product, Contact, Home, Cart, Policy
 `tests/cart-productdetails.spec.ts`
 
 > Note: Might need to run `npm run db:seed` if test cases don't work.
+
+**Non Functional Tests (JMeter):**
+
+`spike_tests/login_spike_test.jmx`, `spike_tests/register_spike_test.jmx`, `spike_tests/make_payment_spike_test_5min.jmx`, `spike_tests/make_payment_spike_test_2min.jmx`, `spike_tests/browsing_products_spike_test.jmx.jmx`, `spike_tests/data/product_terms.txt`, `spike_tests/data/search_terms.csv`,
